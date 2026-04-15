@@ -1,10 +1,12 @@
 function Dispensario() {
   return (
-    <main className="page">
-      <div className="container">
-        <h2>Dispensario</h2>
+    <main className="inner-page">
+      <div className="container inner-hero">
+        <p className="section-kicker">Dispensario</p>
+        <h1>Atención accesible y farmacia con respaldo oficial</h1>
         <p>
-          Aquí irá la información del dispensario: medicina general, odontología, farmacia y enfermería.
+          Esta página puede crecer después con especialidades, horarios, requisitos para compra de
+          medicamentos y contenido visual del área social del proyecto.
         </p>
       </div>
     </main>

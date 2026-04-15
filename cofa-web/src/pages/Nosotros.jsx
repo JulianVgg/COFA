@@ -1,10 +1,12 @@
 function Nosotros() {
   return (
-    <main className="page">
-      <div className="container">
-        <h2>Nosotros</h2>
+    <main className="inner-page">
+      <div className="container inner-hero">
+        <p className="section-kicker">Nosotros</p>
+        <h1>Historia y propósito</h1>
         <p>
-          Aquí irá la información institucional de COFA, su historia, misión, visión y propósito.
+          Esta página quedará lista para desarrollar con más detalle la historia de COFA,
+          su relación con el Movimiento Familiar Cristiano y la identidad del Dispensario.
         </p>
       </div>
     </main>
