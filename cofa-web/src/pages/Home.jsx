@@ -87,6 +87,8 @@ function Home() {
   return (
     <main>
       <section className="hero-section">
+
+
         <div className="hero-slider">
           {heroSlides.map((slide, index) => (
             <article

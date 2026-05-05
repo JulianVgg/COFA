@@ -1,7 +1,7 @@
 export const heroSlides = [
   {
     id: 1,
-    eyebrow: 'Centro de Orientación Familiar',
+    eyebrow: 'COFA',
     title: 'Espacios accesibles y cálidos.',
     text: 'Salones, alimentación y hospedaje para grupos, eventos y actividades con atención cercana.',
     ctaPrimary: 'Ver COFA',
