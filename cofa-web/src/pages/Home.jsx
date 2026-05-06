@@ -210,34 +210,36 @@ function Home() {
         </div>
       </section>
 
-      <section className="about-preview-section" id="nosotros">
-        <div className="about-preview-grid">
-          <div className="about-preview-copy">
-            <p className="about-preview-kicker">QUIÉNES SOMOS</p>
+<section className="about-preview-section" id="nosotros">
+  <div className="about-preview-grid">
+    <Reveal className="about-preview-reveal-left">
+      <div className="about-preview-copy">
+        <p className="about-preview-kicker">QUIÉNES SOMOS</p>
 
-            <h2 className="about-preview-title">
-              Servicio y atención humana
-            </h2>
+        <h2 className="about-preview-title">Servicio y atención humana</h2>
 
-            <p className="about-preview-text">
-              COFA es un espacio orientado a brindar un ambiente acogedor,
-              accesible y confiable para grupos, encuentros, reservaciones
-              y actividades.
-            </p>
+        <p className="about-preview-text">
+          COFA es un espacio orientado a brindar un ambiente acogedor,
+          accesible y confiable para grupos, encuentros, reservaciones
+          y actividades.
+        </p>
 
-            <Link to="/nosotros" className="about-preview-btn">
-              Más información
-            </Link>
-          </div>
+        <Link to="/nosotros" className="about-preview-btn">
+          Más información
+        </Link>
+      </div>
+    </Reveal>
 
-          <div className="about-preview-image">
-            <img
-              src="/images/about/about-cofa.jpeg"
-              alt="Instalaciones de COFA"
-            />
-          </div>
-        </div>
-      </section>
+    <Reveal className="about-preview-reveal-right" delay={140}>
+      <div className="about-preview-image">
+        <img
+          src="/images/about/about-cofa.jpeg"
+          alt="Instalaciones de COFA"
+        />
+      </div>
+    </Reveal>
+  </div>
+</section>
 
       <section className="section-shell services-cofa-section" id="servicios">
         <div className="container">

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
+import Nosotros from './pages/Nosotros'
 import HospedajePage from './pages/servicios/HospedajePage'
 import AlimentacionPage from './pages/servicios/AlimentacionPage'
 import SalonesPage from './pages/servicios/SalonesPage'
@@ -26,7 +27,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/nosotros" element={<PlaceholderPage title="Nosotros" />} />
+        <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/dispensario" element={<PlaceholderPage title="Dispensario" />} />
         <Route path="/contacto" element={<PlaceholderPage title="Contacto" />} />
         <Route path="/servicios/hospedaje" element={<HospedajePage />} />
