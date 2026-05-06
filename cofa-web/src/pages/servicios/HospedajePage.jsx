@@ -89,19 +89,26 @@ function HospedajePage() {
     setAdveniatRoomIndex((current) => (current + 1) % adveniatRoomSlides.length)
   }
 
+  const whatsappMessage = encodeURIComponent(
+    'Hola, quisiera solicitar información sobre hospedaje en COFA.',
+  )
+
+  const whatsappUrl = `https://wa.me/50259357112?text=${whatsappMessage}`
+
   return (
     <main className="lodging-page">
       <section
-        className="service-hero-banner"
+        className="service-hero-banner hospedaje-hero"
         style={{ backgroundImage: "url('/images/hospedaje/hero-hospedaje.jpg')" }}
       >
         <div className="service-hero-overlay" />
+
         <div className="container service-hero-content">
-          <p className="service-hero-kicker hero-fade reveal-delay-1">COFA</p>
-          <h1 className="hero-fade reveal-delay-2">Hospedaje</h1>
-          <p className="hero-fade reveal-delay-3">
+          <h1 className="hero-fade reveal-delay-1">Hospedaje</h1>
+
+          <p className="hero-fade reveal-delay-2">
             Espacios de alojamiento pensados para grupos, encuentros y estancias
-            en un ambiente cómodo, funcional y acogedor.
+            coordinadas.
           </p>
         </div>
       </section>
@@ -124,7 +131,9 @@ function HospedajePage() {
           <div className="lodging-visual-overlay" />
 
           <div className="container lodging-visual-copy">
-            <p className="reveal-up reveal-delay-3">Un recorrido por las instalaciones de hospedaje</p>
+            <p className="reveal-up reveal-delay-3">
+              Un recorrido por las instalaciones de hospedaje
+            </p>
           </div>
 
           <button
@@ -147,19 +156,23 @@ function HospedajePage() {
         </div>
       </section>
 
-      <section className="hotel-block hotel-block-alaminos reveal-up">
-        <div className="container hotel-block-inner">
-          <div className="hotel-block-copy reveal-left">
-            <p className="lodging-label">Hotel Alaminos</p>
-            <h2 className="hotel-block-title-main">Conócenos</h2>
-            <p>
-              El área de Alaminos forma parte de la propuesta de hospedaje de COFA,
-              pensada para recibir grupos y personas que buscan una estancia funcional,
-              accesible y en una ubicación conveniente dentro de Quetzaltenango.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* HOTEL ALAMINOS */}
+     <section className="hotel-intro-split hotel-intro-split-blue reveal-up">
+  <div className="hotel-intro-copy reveal-left">
+    <h2>Hotel Alaminos</h2>
+    <p>
+      Hospedaje pensado para grupos, retiros y encuentros con una estancia
+      cómoda, accesible y coordinada.
+    </p>
+  </div>
+
+  <div className="hotel-intro-media reveal-right">
+    <img
+      src="/images/about/alaminos.jpeg"
+      alt="Hotel Alaminos"
+    />
+  </div>
+</section>
 
       <section className="hotel-rooms-section hotel-rooms-section-light reveal-up">
         <div className="container hotel-rooms-grid">
@@ -197,18 +210,37 @@ function HospedajePage() {
           </div>
 
           <div className="hotel-rooms-copy reveal-right">
+            <p className="hotel-small-label">Hotel Alaminos</p>
+
             <h2>Habitaciones pensadas para comodidad y organización.</h2>
-            <p>
-              COFA cuenta con espacios de hospedaje orientados a grupos y personas que
-              necesitan una estancia práctica dentro de un ambiente tranquilo y funcional.
-            </p>
-            <p>
-              La disponibilidad, distribución y asignación de habitaciones se maneja
-              según el tipo de grupo, actividad y coordinación previa.
-            </p>
+
+            <div className="hotel-info-card">
+              <div className="hotel-info-header">
+                <span>Nivel</span>
+                <span>Dobles</span>
+                <span>Triples</span>
+              </div>
+
+              <div className="hotel-info-row">
+                <span>Alaminos 1er Nivel</span>
+                <strong>—</strong>
+                <strong>12</strong>
+              </div>
+
+              <div className="hotel-info-row">
+                <span>Alaminos 2do Nivel</span>
+                <strong>—</strong>
+                <strong>12</strong>
+              </div>
+
+              <div className="hotel-info-total">
+                <span>Total disponible</span>
+                <strong>24 habitaciones triples</strong>
+              </div>
+            </div>
 
             <a
-              href="https://wa.me/50259357112"
+              href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
               className="rooms-contact-btn reveal-up reveal-delay-2"
@@ -219,35 +251,52 @@ function HospedajePage() {
         </div>
       </section>
 
-      <section className="hotel-block hotel-block-adveniat reveal-up">
-        <div className="container hotel-block-inner">
-          <div className="hotel-block-copy hotel-block-copy-dark hotel-block-copy-left reveal-left">
-            <p className="lodging-label">Hotel Adveniat</p>
-            <h2>Conócenos</h2>
-            <p>
-              Adveniat complementa la experiencia de hospedaje con espacios adecuados
-              para actividades, encuentros y grupos que requieren organización previa
-              y atención cercana.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* HOTEL ADVENIAT */}
+     <section className="hotel-intro-split hotel-intro-split-cream hotel-intro-split-reverse reveal-up">
+  <div className="hotel-intro-media reveal-left">
+    <img
+      src="/images/about/adveniat.jpg"
+      alt="Hotel Adveniat"
+    />
+  </div>
+
+  <div className="hotel-intro-copy hotel-intro-copy-right reveal-right">
+    <h2>Hotel Adveniat</h2>
+    <p>
+      Una opción complementaria de hospedaje para grupos y personas que
+      buscan una estancia práctica y organizada.
+    </p>
+  </div>
+</section>
 
       <section className="hotel-rooms-section hotel-rooms-section-cream reveal-up">
         <div className="container hotel-rooms-grid hotel-rooms-grid-reverse">
           <div className="hotel-rooms-copy reveal-left">
+            <p className="hotel-small-label">Hotel Adveniat</p>
+
             <h2>Ambientes funcionales para grupos y estancias coordinadas.</h2>
-            <p>
-              El área de Adveniat ofrece otra alternativa de alojamiento dentro de COFA,
-              manteniendo la idea de comodidad, organización y atención cercana.
-            </p>
-            <p>
-              Estas habitaciones pueden adaptarse según la dinámica del grupo y la
-              disponibilidad previamente coordinada.
-            </p>
+
+            <div className="hotel-info-card hotel-info-card-cream">
+              <div className="hotel-info-header">
+                <span>Hotel</span>
+                <span>Dobles</span>
+                <span>Triples</span>
+              </div>
+
+              <div className="hotel-info-row">
+                <span>Adveniat</span>
+                <strong>5</strong>
+                <strong>4</strong>
+              </div>
+
+              <div className="hotel-info-total">
+                <span>Total disponible</span>
+                <strong>5 dobles · 4 triples</strong>
+              </div>
+            </div>
 
             <a
-              href="https://wa.me/50259357112"
+              href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
               className="rooms-contact-btn rooms-contact-btn-cream reveal-up reveal-delay-2"

@@ -33,18 +33,24 @@ function AlimentacionPage() {
     setSlideIndex((current) => (current + 1) % foodSlides.length)
   }
 
+  const whatsappMessage = encodeURIComponent(
+    'Hola, quisiera solicitar información sobre el servicio de alimentación de COFA. Me gustaría conocer disponibilidad, opciones para grupos y cómo se coordina el servicio.',
+  )
+
+  const whatsappUrl = `https://wa.me/50259357112?text=${whatsappMessage}`
+
   return (
     <main className="food-page">
       <section
-        className="service-hero-banner"
+        className="service-hero-banner food-hero-banner"
         style={{ backgroundImage: "url('/images/alimentacion/hero-alimentacion.jpg')" }}
       >
         <div className="service-hero-overlay" />
 
-        <div className="container service-hero-content">
-          <p className="service-hero-kicker hero-fade reveal-delay-1">COFA</p>
-          <h1 className="hero-fade reveal-delay-2">Alimentación</h1>
-          <p className="hero-fade reveal-delay-3">
+        <div className="container service-hero-content food-hero-content">
+          <h1 className="hero-fade reveal-delay-1">Alimentación</h1>
+
+          <p className="hero-fade reveal-delay-2">
             Sabores tradicionales, atención organizada y opciones pensadas para
             acompañar eventos, reuniones y actividades grupales.
           </p>
@@ -54,7 +60,9 @@ function AlimentacionPage() {
       <section className="food-split-section">
         <div className="food-split-grid">
           <div className="food-split-copy reveal-left">
-            <p className="food-kicker reveal-up reveal-delay-1">Servicio de alimentación</p>
+            <p className="food-kicker reveal-up reveal-delay-1">
+              Servicio de alimentación
+            </p>
 
             <h2 className="reveal-up reveal-delay-2">
               Nuestros
@@ -63,7 +71,7 @@ function AlimentacionPage() {
               <br />
               regionales
               <br />
-              será el
+              serán el
               <br />
               toque para
               <br />
@@ -83,12 +91,12 @@ function AlimentacionPage() {
             </div>
 
             <a
-              href="https://wa.me/50259357112"
+              href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
               className="rooms-contact-btn reveal-up reveal-delay-4"
             >
-              Solicitar info
+              Solicitar información
             </a>
           </div>
 

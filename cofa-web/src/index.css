@@ -1194,7 +1194,7 @@ section.location-shell > .container {
 
 .service-hero-banner {
   position: relative;
-  min-height: 58vh;
+  min-height: 48vh;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1205,7 +1205,7 @@ section.location-shell > .container {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(9, 25, 36, 0.28), rgba(9, 25, 36, 0.42)),
+    linear-gradient(180deg, rgba(9, 25, 36, 0.24), rgba(9, 25, 36, 0.44)),
     linear-gradient(90deg, rgba(13, 84, 125, 0.26), rgba(13, 84, 125, 0.08));
 }
 
@@ -1227,17 +1227,32 @@ section.location-shell > .container {
 
 .service-hero-content h1 {
   margin: 0;
-  font-size: clamp(3.6rem, 8vw, 6.5rem);
-  line-height: 0.94;
-  letter-spacing: -0.05em;
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
 }
 
 .service-hero-content p {
   margin: 22px auto 0;
   max-width: 760px;
   font-size: 1.08rem;
-  line-height: 1.9;
+  line-height: 1.85;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.service-hero-tagline {
+  display: inline-flex;
+  margin-top: 28px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
 }
 
 /* =========================================================
@@ -1248,18 +1263,23 @@ section.location-shell > .container {
   background: #ffffff;
 }
 
-.lodging-visual-hero {
-  background: #ffffff;
-  padding-top: 50px;
-  margin-bottom: 0;
+.hospedaje-hero .service-hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(9, 25, 36, 0.22), rgba(9, 25, 36, 0.5)),
+    linear-gradient(90deg, rgba(10, 39, 58, 0.32), rgba(10, 39, 58, 0.08));
 }
 
+.lodging-visual-hero {
+  background: #ffffff;
+  padding-top: 26px;
+  margin-bottom: 0;
+}
 .lodging-visual-header {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-bottom: 42px;
+  padding-bottom: 24px;
 }
 
 .lodging-visual-header h2 {
@@ -1272,10 +1292,9 @@ section.location-shell > .container {
 
 .lodging-visual-slider {
   position: relative;
-  min-height: 82vh;
+  min-height: 64vh;
   overflow: hidden;
 }
-
 .lodging-visual-slide {
   position: absolute;
   inset: 0;
@@ -1303,20 +1322,19 @@ section.location-shell > .container {
 .lodging-visual-copy {
   position: relative;
   z-index: 3;
-  min-height: 82vh;
+  min-height: 64vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-
 .lodging-visual-copy p {
   margin: 0;
-  max-width: 940px;
+  max-width: 820px;
   color: #ffffff;
-  font-size: clamp(2rem, 4.4vw, 4rem);
+  font-size: clamp(1.8rem, 3.4vw, 3.2rem);
   line-height: 1.08;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
   font-weight: 800;
 }
 
@@ -1349,13 +1367,19 @@ section.location-shell > .container {
   right: 24px;
 }
 
+/* BLOQUES DE HOTEL */
+
 .hotel-block {
   width: 100%;
   margin-top: 0;
 }
 
 .hotel-block-inner {
-  padding: 88px 0;
+  padding: 125px 0;
+}
+.hotel-block-inner-right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .hotel-block-copy {
@@ -1363,8 +1387,9 @@ section.location-shell > .container {
   text-align: left;
 }
 
-.hotel-block-copy-left {
-  text-align: left;
+.hotel-block-copy-adveniat {
+  width: min(980px, 100%);
+  padding-left: clamp(24px, 4vw, 80px);
 }
 
 .hotel-block-alaminos {
@@ -1384,18 +1409,24 @@ section.location-shell > .container {
 .lodging-label {
   margin: 0 0 18px;
   font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-weight: 900;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .hotel-block-title-main,
 .hotel-block-copy h2 {
-  margin: 0 0 20px;
-  font-size: clamp(2.6rem, 5vw, 5.2rem);
-  line-height: 0.95;
-  letter-spacing: -0.05em;
+  margin: 0 0 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4.4rem, 7.4vw, 7.8rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   text-align: left;
+}
+.hotel-rooms-copy h2 {
+  font-family: inherit;
 }
 
 .hotel-block-title-main {
@@ -1404,10 +1435,17 @@ section.location-shell > .container {
 
 .hotel-block-copy p:last-child {
   margin: 0;
-  font-size: 1.08rem;
+  max-width: 1180px;
+  font-size: 1.1rem;
   line-height: 1.95;
   text-align: left;
 }
+
+.hotel-block-adveniat .hotel-block-copy p:last-child {
+  max-width: 980px;
+}
+
+/* HABITACIONES */
 
 .hotel-rooms-section {
   padding: 88px 0 110px;
@@ -1468,29 +1506,98 @@ section.location-shell > .container {
 }
 
 .hotel-rooms-copy h2 {
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   font-size: clamp(2.5rem, 5vw, 5rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
 }
 
-.hotel-rooms-copy p {
-  margin: 0 0 18px;
-  line-height: 1.95;
-  color: var(--muted);
-  font-size: 1.06rem;
+.hotel-small-label {
+  margin: 0 0 16px;
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+}
+
+.hotel-info-card {
+  overflow: hidden;
+  margin-top: 26px;
+  border-radius: 26px;
+  background: #ffffff;
+  border: 1px solid rgba(20, 52, 74, 0.08);
+  box-shadow: 0 18px 42px rgba(18, 40, 58, 0.08);
+}
+
+.hotel-info-card-cream {
+  background: #fffdf8;
+}
+
+.hotel-info-header,
+.hotel-info-row,
+.hotel-info-total {
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr 0.75fr;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+}
+
+.hotel-info-header {
+  background: rgba(13, 84, 125, 0.08);
+  color: var(--blue-deep);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hotel-info-row {
+  border-top: 1px solid rgba(20, 52, 74, 0.08);
+  color: #243237;
+}
+
+.hotel-info-row span {
+  font-weight: 800;
+}
+
+.hotel-info-row strong {
+  justify-self: start;
+  font-size: 1.3rem;
+  color: var(--blue-deep);
+}
+
+.hotel-info-total {
+  grid-template-columns: 1fr;
+  border-top: 1px solid rgba(20, 52, 74, 0.08);
+  background: #f6f4ef;
+}
+
+.hotel-info-total span {
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6a787d;
+}
+
+.hotel-info-total strong {
+  margin-top: 4px;
+  font-size: 1.18rem;
+  color: #243237;
 }
 
 .rooms-contact-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 14px;
+  margin-top: 26px;
   padding: 16px 28px;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--blue), var(--blue-deep));
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 800;
   box-shadow: 0 16px 34px rgba(18, 86, 127, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -1505,9 +1612,78 @@ section.location-shell > .container {
   color: #243237;
 }
 
-/* =========================================================
-   ALIMENTACIÓN PAGE
-========================================================= */
+/* RESPONSIVE HOSPEDAJE */
+
+@media (max-width: 980px) {
+  .hotel-rooms-grid,
+  .hotel-rooms-grid-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-block-inner-right {
+    justify-content: flex-start;
+  }
+
+  .hotel-block-copy-adveniat {
+    padding-left: 0;
+  }
+
+  .hotel-rooms-slider {
+    min-height: 460px;
+  }
+
+  .hotel-info-header,
+  .hotel-info-row {
+    grid-template-columns: 1.2fr 0.7fr 0.7fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .service-hero-banner {
+    min-height: 460px;
+  }
+
+  .service-hero-content {
+    padding: 70px 0;
+  }
+
+  .service-hero-content h1 {
+    font-size: clamp(3.1rem, 16vw, 5rem);
+  }
+
+  .lodging-visual-slider,
+  .lodging-visual-copy {
+    min-height: 560px;
+  }
+
+  .hotel-block-inner {
+    padding: 64px 0;
+  }
+
+  .hotel-block-title-main,
+  .hotel-block-copy h2,
+  .hotel-rooms-copy h2 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+
+  .hotel-rooms-section {
+    padding: 64px 0 78px;
+  }
+
+  .hotel-rooms-slider {
+    min-height: 360px;
+  }
+
+  .hotel-info-header,
+  .hotel-info-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hotel-info-row strong {
+    font-size: 1.1rem;
+  }
+}
 
 .food-page {
   background: #ffffff;
@@ -3175,5 +3351,683 @@ section.location-shell > .container {
   .contact-hero-text {
     font-size: 1rem;
     line-height: 1.75;
+  }
+}
+/* =========================================================
+   INTRO DE HOTELES - HOSPEDAJE
+========================================================= */
+
+.hotel-intro-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-height: 460px;
+}
+
+.hotel-intro-split-blue {
+  background: #145f8f;
+  color: #ffffff;
+}
+
+.hotel-intro-split-cream {
+  background: #f5f1e8;
+  color: var(--text);
+}
+
+.hotel-intro-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 6vw, 90px);
+}
+
+.hotel-intro-copy h2 {
+  margin: 0 0 22px;
+  font-size: clamp(3.2rem, 6vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.hotel-intro-copy p {
+  margin: 0;
+  max-width: 760px;
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.hotel-intro-copy-right {
+  padding-left: clamp(44px, 6vw, 88px);
+  padding-right: clamp(28px, 4vw, 54px);
+}
+
+.hotel-intro-media {
+  min-height: 460px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hotel-intro-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   HABITACIONES - AJUSTE DE PROPORCIONES
+========================================================= */
+
+.hotel-rooms-grid,
+.hotel-rooms-grid-reverse {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 52px;
+  align-items: stretch;
+}
+
+.hotel-rooms-slider-wrap,
+.hotel-rooms-copy {
+  min-height: 560px;
+  height: 100%;
+}
+
+.hotel-rooms-slider {
+  min-height: 560px;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.hotel-rooms-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hotel-rooms-copy h2 {
+  margin: 0 0 22px;
+  max-width: 560px;
+  font-size: clamp(2.3rem, 4.2vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.hotel-info-card {
+  margin-top: 22px;
+}
+
+.rooms-contact-btn {
+  margin-top: 24px;
+  width: fit-content;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 980px) {
+  .hotel-intro-split,
+  .hotel-intro-split-reverse,
+  .hotel-rooms-grid,
+  .hotel-rooms-grid-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-intro-media,
+  .hotel-rooms-slider,
+  .hotel-rooms-slider-wrap,
+  .hotel-rooms-copy {
+    min-height: auto;
+  }
+
+  .hotel-intro-media {
+    min-height: 320px;
+  }
+
+  .hotel-intro-split-reverse .hotel-intro-media {
+    order: 1;
+  }
+
+  .hotel-intro-split-reverse .hotel-intro-copy {
+    order: 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .hotel-intro-copy {
+    padding: 36px 24px;
+  }
+
+  .hotel-intro-copy h2 {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .hotel-intro-copy p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .hotel-rooms-copy h2 {
+    font-size: clamp(2rem, 11vw, 3.4rem);
+  }
+
+  .hotel-rooms-slider {
+    min-height: 360px;
+  }
+}
+/* =========================================================
+   AJUSTES FINALES HOSPEDAJE
+   Galería + nombres de hoteles
+========================================================= */
+
+/* Más aire para que "Galería" no quede pegado al slider */
+.lodging-visual-hero {
+  background: #ffffff;
+  padding-top: 36px;
+  margin-bottom: 0;
+}
+
+.lodging-visual-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 42px;
+}
+
+.lodging-visual-header h2 {
+  margin: 0;
+  font-size: clamp(3.3rem, 6.4vw, 5.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  color: var(--text);
+}
+
+/* Regresa un poco de altura a la galería */
+.lodging-visual-slider {
+  position: relative;
+  min-height: 72vh;
+  overflow: hidden;
+}
+
+.lodging-visual-copy {
+  position: relative;
+  z-index: 3;
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Texto interno de galería más balanceado */
+.lodging-visual-copy p {
+  margin: 0;
+  max-width: 840px;
+  color: #ffffff;
+  font-size: clamp(1.9rem, 3.6vw, 3.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+}
+
+/* Tipografía elegante para Hotel Alaminos y Hotel Adveniat */
+.hotel-intro-copy h2 {
+  margin: 0 0 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4.6rem, 7.8vw, 8.2rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+}
+
+/* Para que el texto debajo del hotel combine mejor */
+.hotel-intro-copy p {
+  margin: 0;
+  max-width: 760px;
+  font-size: 1.15rem;
+  line-height: 1.85;
+}
+
+/* Hotel Alaminos en blanco */
+.hotel-intro-split-blue .hotel-intro-copy h2 {
+  color: #ffffff;
+}
+
+/* Hotel Adveniat en oscuro */
+.hotel-intro-split-cream .hotel-intro-copy h2 {
+  color: #243237;
+}
+
+/* Ajuste responsive */
+@media (max-width: 780px) {
+  .lodging-visual-slider,
+  .lodging-visual-copy {
+    min-height: 58vh;
+  }
+
+  .lodging-visual-header {
+    padding-bottom: 30px;
+  }
+
+  .hotel-intro-copy h2 {
+    font-size: clamp(3.4rem, 14vw, 5rem);
+  }
+}
+/* =========================================================
+   AJUSTES HERO ALIMENTACIÓN
+========================================================= */
+
+.food-hero-banner {
+  min-height: 50vh;
+}
+
+.food-hero-content h1 {
+  font-size: clamp(4rem, 8vw, 7.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.food-hero-content p {
+  max-width: 900px;
+  margin-top: 24px;
+  font-size: clamp(1.08rem, 1.45vw, 1.38rem);
+  line-height: 1.75;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+/* =========================================================
+   AJUSTES HERO HOSPEDAJE
+========================================================= */
+
+.hospedaje-hero {
+  min-height: 50vh;
+}
+
+.hospedaje-hero .service-hero-content h1 {
+  font-size: clamp(4rem, 8vw, 7.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.hospedaje-hero .service-hero-content p {
+  max-width: 900px;
+  margin-top: 24px;
+  font-size: clamp(1.08rem, 1.45vw, 1.38rem);
+  line-height: 1.75;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+/* =========================================================
+   SALONES PAGE
+========================================================= */
+
+.halls-page {
+  background: #ffffff;
+}
+
+/* HERO SALONES */
+.halls-hero {
+  min-height: 50vh;
+}
+
+.halls-hero .service-hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(9, 25, 36, 0.22), rgba(9, 25, 36, 0.5)),
+    linear-gradient(90deg, rgba(10, 39, 58, 0.32), rgba(10, 39, 58, 0.08));
+}
+
+.halls-hero-content h1 {
+  font-size: clamp(4rem, 8vw, 7.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.halls-hero-content p {
+  max-width: 900px;
+  margin-top: 24px;
+  font-size: clamp(1.08rem, 1.45vw, 1.38rem);
+  line-height: 1.75;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* INTRO */
+.halls-intro-section {
+  padding: 86px 0 74px;
+  background: #ffffff;
+  border-bottom: 10px solid var(--blue-deep);
+}
+
+.halls-intro-content {
+  text-align: center;
+}
+
+.halls-kicker {
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+}
+
+.halls-intro-content h2 {
+  margin: 0 auto;
+  max-width: 1100px;
+  font-size: clamp(3rem, 6.8vw, 6.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  color: #243237;
+}
+
+/* LISTA DE SALONES */
+.halls-list-section {
+  background: #f6f4ef;
+}
+
+.hall-showcase {
+  padding: 92px 0;
+}
+
+.hall-showcase:nth-child(even) {
+  background: #ffffff;
+}
+
+.hall-showcase-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 58px;
+  align-items: stretch;
+}
+
+.hall-showcase-reverse .hall-showcase-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
+.hall-showcase-reverse .hall-showcase-copy {
+  order: 2;
+}
+
+.hall-showcase-reverse .hall-showcase-media {
+  order: 1;
+}
+
+.hall-showcase-copy {
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hall-small-label {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+}
+
+.hall-showcase-copy h2 {
+  margin: 0 0 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 7vw, 7.2rem);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: #243237;
+}
+
+.hall-showcase-media {
+  min-height: 560px;
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0 22px 52px rgba(18, 43, 61, 0.12);
+}
+
+.hall-showcase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* TABLA */
+.hall-info-card {
+  overflow: hidden;
+  width: 100%;
+  max-width: 620px;
+  border-radius: 26px;
+  background: #ffffff;
+  border: 1px solid rgba(20, 52, 74, 0.08);
+  box-shadow: 0 18px 42px rgba(18, 40, 58, 0.08);
+}
+
+.hall-info-header,
+.hall-info-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.hall-info-header {
+  background: rgba(13, 84, 125, 0.08);
+}
+
+.hall-info-header span {
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+}
+
+.hall-info-row {
+  border-top: 1px solid rgba(20, 52, 74, 0.08);
+}
+
+.hall-info-row span {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #243237;
+}
+
+.hall-info-row strong {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--blue-deep);
+}
+
+/* BOTÓN */
+.hall-contact-btn {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 16px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+  color: #ffffff;
+  font-weight: 900;
+  box-shadow: 0 16px 34px rgba(18, 86, 127, 0.2);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hall-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(18, 86, 127, 0.24);
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .hall-showcase-grid,
+  .hall-showcase-reverse .hall-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hall-showcase-reverse .hall-showcase-copy,
+  .hall-showcase-reverse .hall-showcase-media {
+    order: initial;
+  }
+
+  .hall-showcase-copy,
+  .hall-showcase-media {
+    min-height: auto;
+  }
+
+  .hall-showcase-media {
+    min-height: 420px;
+  }
+
+  .hall-info-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .halls-hero {
+    min-height: 430px;
+  }
+
+  .halls-intro-section {
+    padding: 64px 0 58px;
+  }
+
+  .halls-intro-content h2 {
+    font-size: clamp(2.5rem, 13vw, 4.2rem);
+  }
+
+  .hall-showcase {
+    padding: 68px 0;
+  }
+
+  .hall-showcase-copy h2 {
+    font-size: clamp(3.2rem, 14vw, 5rem);
+  }
+
+  .hall-showcase-media {
+    min-height: 340px;
+    border-radius: 26px;
+  }
+
+  .hall-info-header,
+  .hall-info-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hall-contact-btn {
+    width: 100%;
+  }
+}
+/* =========================================================
+   CARRUSEL DE SALONES
+========================================================= */
+
+.hall-carousel {
+  position: relative;
+}
+
+.hall-carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 0.8s ease,
+    transform 1.15s ease;
+}
+
+.hall-carousel-slide.active {
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.hall-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--blue-deep);
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  transform: translateY(-50%);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.hall-carousel-arrow:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.04);
+}
+
+.hall-carousel-arrow-left {
+  left: 24px;
+}
+
+.hall-carousel-arrow-right {
+  right: 24px;
+}
+
+.hall-carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+
+.hall-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease;
+}
+
+.hall-carousel-dot.active {
+  width: 28px;
+  background: #ffffff;
+}
+
+@media (max-width: 620px) {
+  .hall-carousel-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 1.7rem;
+  }
+
+  .hall-carousel-arrow-left {
+    left: 16px;
+  }
+
+  .hall-carousel-arrow-right {
+    right: 16px;
   }
 }
