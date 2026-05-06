@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import { heroSlides } from '../data/siteData'
 
@@ -87,8 +87,6 @@ function Home() {
   return (
     <main>
       <section className="hero-section">
-
-
         <div className="hero-slider">
           {heroSlides.map((slide, index) => (
             <article
@@ -106,31 +104,39 @@ function Home() {
             >
               <div className="hero-layer" />
 
-              <div className="container hero-inner hero-centered">
-                <div
-                  className="hero-copy hero-copy-centered"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <p className="hero-eyebrow">{slide.eyebrow}</p>
-                  <h1>{slide.title}</h1>
-                  <p className="hero-text">{slide.text}</p>
+              <div className="hero-inner">
+                <div className="container hero-stage">
+                  <div className="hero-brand-corner">{slide.eyebrow}</div>
 
-                  <div className="hero-actions hero-actions-centered">
-                    <a
-                      href={slide.targetPrimary}
-                      className="btn btn-primary"
+                  <div className="hero-message-center">
+                    <div
+                      className="hero-message-box"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      {slide.ctaPrimary}
-                    </a>
+                      <h1>{slide.title}</h1>
 
-                    <a
-                      href={slide.targetSecondary}
-                      className="btn btn-secondary"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {slide.ctaSecondary}
-                    </a>
+                      {slide.text && (
+                        <p className="hero-text">{slide.text}</p>
+                      )}
+
+                      <div className="hero-actions hero-actions-centered">
+                        <Link
+                          to={slide.targetPrimary}
+                          className="btn btn-primary"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {slide.ctaPrimary}
+                        </Link>
+
+                        <Link
+                          to={slide.targetSecondary}
+                          className="btn btn-secondary"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {slide.ctaSecondary}
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -173,16 +179,13 @@ function Home() {
             <div className="about-simple-copy">
               <p className="about-simple-kicker">QUIÉNES SOMOS</p>
 
-              <h2 className="about-simple-title">
+              <h3 className="about-simple-title">
                 Servicio y atención humana
-              </h2>
+              </h3>
 
               <p className="about-simple-text">
                 COFA es un espacio orientado a brindar un ambiente acogedor,
                 accesible y confiable para grupos, encuentros y actividades.
-                Con el tiempo abrió sus puertas al público, ofreciendo servicios
-                de hospedaje, alimentación y renta de salones en una ubicación
-                céntrica de Quetzaltenango.
               </p>
 
               <a href="/nosotros" className="about-simple-button">
@@ -218,7 +221,7 @@ function Home() {
           <div className="services-cofa-grid">
             {cofaServices.map((service, index) => (
               <Reveal key={service.id} delay={index * 120}>
-                <a href="/servicios" className="service-cofa-card">
+                <a href={`/servicios/${service.id}`} className="service-cofa-card">
                   <div className="service-cofa-image-wrap">
                     {service.images.map((image, imgIndex) => (
                       <img
@@ -248,12 +251,7 @@ function Home() {
         <div className="container">
           <Reveal>
             <div className="section-head section-head-centered">
-              <p className="section-kicker">Ubicación</p>
-              <h2>Accesible, céntrico y fácil de encontrar.</h2>
-              <p className="section-description">
-                Muy cerca de la terminal central, una de las ventajas más mencionadas
-                por quienes visitan el lugar.
-              </p>
+              <h2>Accesible y Centrico.</h2>
             </div>
           </Reveal>
 
