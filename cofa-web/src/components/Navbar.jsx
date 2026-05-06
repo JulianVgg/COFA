@@ -13,9 +13,10 @@ function Navbar() {
             />
           </div>
 
-<div className="brand-copy">
-  <h1 className="brand-title">Centro de Orientacion Familiar</h1>
-</div>
+          <div className="brand-copy">
+            <h1 className="brand-title">Centro de Orientacion Familiar</h1>
+            <p className="brand-script">COFA</p>
+          </div>
         </Link>
 
         <nav className="main-nav">

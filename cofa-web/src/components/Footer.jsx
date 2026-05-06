@@ -1,19 +1,22 @@
-import { contacts } from '../data/siteData'
-
 function Footer() {
+  const mapsUrl =
+    'https://www.google.com/maps/dir/?api=1&destination=23+avenida+9-60+zona+3,+Quetzaltenango,+Guatemala'
+
   return (
     <footer className="site-footer">
-      <div className="container footer-top">
-        <div className="footer-brand">
-          <img
-            src="/images/logo/cofa-logo2.png"
-            alt="Logo de COFA"
-            className="footer-brand-logo"
-          />
+      <div className="container footer-shell">
+        <div className="footer-brand-row">
+          <div className="footer-brand">
+            <img
+              src="/images/logo/cofa-logo3.png"
+              alt="Logo horizontal de COFA"
+              className="footer-brand-logo"
+            />
 
-          <div className="footer-brand-copy">
-            <h2>COFA</h2>
-            <p>Centro de Orientación Familiar</p>
+            <div className="footer-brand-copy">
+              <h3>Centro de Orientación Familiar</h3>
+              <p>COFA</p>
+            </div>
           </div>
         </div>
 
@@ -21,31 +24,73 @@ function Footer() {
 
         <div className="footer-grid">
           <div className="footer-column">
-            <h3>Contacto</h3>
-            <p>Teléfonos: {contacts.cofa.phone1} / {contacts.cofa.phone2}</p>
-            <p>WhatsApp: {contacts.cofa.whatsapp}</p>
-            <p>Correo: {contacts.cofa.email}</p>
-            <p>Dirección: {contacts.address}</p>
-          </div>
+            <h4>Contacto</h4>
 
-          <div className="footer-column">
-            <h3>Dispensario</h3>
-            <p>Teléfono: {contacts.dispensario.phone}</p>
-            <p>WhatsApp: {contacts.dispensario.whatsapp}</p>
-          </div>
-
-          <div className="footer-column">
-            <h3>Horarios</h3>
-            <p>{contacts.dispensario.schedule}</p>
             <p>
-              COFA trabaja según reservaciones, horarios y actividades programadas
-              de cada grupo.
+              <a href="tel:+50277635579">Teléfono: 7763 5579</a>
+              <br />
+              <a href="tel:+50277674226">Teléfono: 7767 4226</a>
+            </p>
+
+            <p>
+              <a
+                href="https://wa.me/50259357112"
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp: 5935 7112
+              </a>
+            </p>
+
+            <p>
+              <a href="mailto:cofaquetzaltenango@yahoo.com">
+                Correo: cofaquetzaltenango@yahoo.com
+              </a>
+            </p>
+
+            <p>
+              <a href={mapsUrl} target="_blank" rel="noreferrer">
+                Dirección: 23 avenida 9-60 zona 3, Quetzaltenango
+              </a>
+            </p>
+          </div>
+
+          <div className="footer-column">
+            <h4>Dispensario</h4>
+
+            <p>
+              <a href="tel:+50277669043">Teléfono: 7766 9043</a>
+            </p>
+
+            <p>
+              <a
+                href="https://wa.me/50237908767"
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp: 3790 8767
+              </a>
+            </p>
+          </div>
+
+          <div className="footer-column">
+            <h4>Horarios</h4>
+            <p>Lunes a viernes de 8:00 a 17:00 · sábados de 8:00 a 12:00</p>
+            <p>
+              COFA trabaja según reservaciones, horarios y actividades
+              programadas de cada grupo.
             </p>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p>Comunícate por WhatsApp para información y reservaciones.</p>
+        <div className="footer-bottom-note">
+          <a
+            href="https://wa.me/50259357112"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Comunícate por WhatsApp para información y reservaciones.
+          </a>
         </div>
       </div>
     </footer>

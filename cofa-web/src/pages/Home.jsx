@@ -1,37 +1,56 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import { heroSlides } from '../data/siteData'
 
 function Home() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
   const [activeSlide, setActiveSlide] = useState(0)
+
   const [serviceSlides, setServiceSlides] = useState({
     hospedaje: 0,
     alimentacion: 0,
     salones: 0,
   })
 
-  const navigate = useNavigate()
+  /*
+    Esto sirve para forzar que ciertas animaciones CSS se vuelvan a montar
+    cuando regreses al Home desde otra página.
+  */
+  const animationKey = location.key
 
+  /*
+    Reinicia el Home cada vez que entras otra vez a esta página.
+    - Vuelve al primer slide del hero.
+    - Vuelve al primer slide de cada servicio.
+    - Sube el scroll al inicio.
+  */
+  useEffect(() => {
+    setActiveSlide(0)
+
+    setServiceSlides({
+      hospedaje: 0,
+      alimentacion: 0,
+      salones: 0,
+    })
+
+    window.scrollTo(0, 0)
+  }, [location.key])
+
+  /*
+    Slider principal del Hero.
+    Se reinicia también cuando cambia location.key,
+    así el contador vuelve a empezar cuando regresas al Home.
+  */
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length)
     }, 5000)
 
     return () => clearInterval(timer)
-  }, [])
-
-  const goPrev = () => {
-    setActiveSlide((current) => (current - 1 + heroSlides.length) % heroSlides.length)
-  }
-
-  const goNext = () => {
-    setActiveSlide((current) => (current + 1) % heroSlides.length)
-  }
-
-  const handleSlideClick = (slide) => {
-    navigate(slide.targetPrimary)
-  }
+  }, [location.key])
 
   const cofaServices = useMemo(
     () => [
@@ -72,6 +91,10 @@ function Home() {
     [],
   )
 
+  /*
+    Slider de las cards de servicios.
+    También se reinicia al volver al Home.
+  */
   useEffect(() => {
     const timer = setInterval(() => {
       setServiceSlides((current) => ({
@@ -82,15 +105,27 @@ function Home() {
     }, 4000)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [location.key])
+
+  const goPrev = () => {
+    setActiveSlide((current) => (current - 1 + heroSlides.length) % heroSlides.length)
+  }
+
+  const goNext = () => {
+    setActiveSlide((current) => (current + 1) % heroSlides.length)
+  }
+
+  const handleSlideClick = (slide) => {
+    navigate(slide.targetPrimary)
+  }
 
   return (
-    <main>
+    <main className="home-page" key={animationKey}>
       <section className="hero-section">
         <div className="hero-slider">
           {heroSlides.map((slide, index) => (
             <article
-              key={slide.id}
+              key={`${slide.id}-${animationKey}`}
               className={`hero-slide ${index === activeSlide ? 'active' : ''}`}
               style={{ backgroundImage: `url(${slide.image})` }}
               onClick={() => handleSlideClick(slide)}
@@ -145,6 +180,7 @@ function Home() {
         </div>
 
         <button
+          type="button"
           className="hero-arrow hero-arrow-left"
           onClick={goPrev}
           aria-label="Slide anterior"
@@ -153,6 +189,7 @@ function Home() {
         </button>
 
         <button
+          type="button"
           className="hero-arrow hero-arrow-right"
           onClick={goNext}
           aria-label="Slide siguiente"
@@ -173,42 +210,38 @@ function Home() {
         </div>
       </section>
 
-      <section className="about-simple-section" id="nosotros">
-        <div className="about-simple-grid">
-          <Reveal>
-            <div className="about-simple-copy">
-              <p className="about-simple-kicker">QUIÉNES SOMOS</p>
+      <section className="about-preview-section" id="nosotros">
+        <div className="about-preview-grid">
+          <div className="about-preview-copy">
+            <p className="about-preview-kicker">QUIÉNES SOMOS</p>
 
-              <h3 className="about-simple-title">
-                Servicio y atención humana
-              </h3>
+            <h2 className="about-preview-title">
+              Servicio y atención humana
+            </h2>
 
-              <p className="about-simple-text">
-                COFA es un espacio orientado a brindar un ambiente acogedor,
-                accesible y confiable para grupos, encuentros y actividades.
-              </p>
+            <p className="about-preview-text">
+              COFA es un espacio orientado a brindar un ambiente acogedor,
+              accesible y confiable para grupos, encuentros, reservaciones
+              y actividades.
+            </p>
 
-              <a href="/nosotros" className="about-simple-button">
-                Más información
-              </a>
-            </div>
-          </Reveal>
+            <Link to="/nosotros" className="about-preview-btn">
+              Más información
+            </Link>
+          </div>
 
-          <Reveal delay={120}>
-            <div className="about-simple-image-shell">
-              <img
-                src="/images/about/about-cofa.jpeg"
-                alt="Instalaciones de COFA"
-                className="about-simple-image"
-              />
-            </div>
-          </Reveal>
+          <div className="about-preview-image">
+            <img
+              src="/images/about/about-cofa.jpeg"
+              alt="Instalaciones de COFA"
+            />
+          </div>
         </div>
       </section>
 
       <section className="section-shell services-cofa-section" id="servicios">
         <div className="container">
-          <Reveal>
+          <Reveal key={`services-head-${animationKey}`}>
             <div className="services-cofa-head">
               <h2 className="services-cofa-title">Servicios</h2>
               <p className="services-cofa-intro">
@@ -220,8 +253,11 @@ function Home() {
 
           <div className="services-cofa-grid">
             {cofaServices.map((service, index) => (
-              <Reveal key={service.id} delay={index * 120}>
-                <a href={`/servicios/${service.id}`} className="service-cofa-card">
+              <Reveal key={`${service.id}-${animationKey}`} delay={index * 120}>
+                <Link
+                  to={`/servicios/${service.id}`}
+                  className="service-cofa-card"
+                >
                   <div className="service-cofa-image-wrap">
                     {service.images.map((image, imgIndex) => (
                       <img
@@ -240,31 +276,49 @@ function Home() {
                     <h3>{service.title}</h3>
                     <p>{service.description}</p>
                   </div>
-                </a>
+                </Link>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-shell location-shell" id="ubicacion">
-        <div className="container">
-          <Reveal>
-            <div className="section-head section-head-centered">
-              <h2>Accesible y Centrico.</h2>
-            </div>
-          </Reveal>
+      <section className="location-section" id="ubicacion">
+        <div className="container location-shell">
+          <div className="location-heading">
+            <p className="location-kicker"></p>
+            <h2>Visítanos</h2>
+          </div>
 
-          <Reveal delay={120}>
-            <div className="map-shell">
-              <iframe
-                title="Mapa de ubicación de COFA"
-                src="https://www.google.com/maps?q=23%20avenida%209-60%20zona%203,%20Quetzaltenango&z=17&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </Reveal>
+          <div className="location-actions">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=23+avenida+9-60+zona+3,+Quetzaltenango,+Guatemala"
+              target="_blank"
+              rel="noreferrer"
+              className="location-btn location-btn-primary"
+            >
+              Abrir en Google Maps
+            </a>
+
+            <a
+              href="https://waze.com/ul?q=23%20avenida%209-60%20zona%203%20Quetzaltenango%20Guatemala&navigate=yes"
+              target="_blank"
+              rel="noreferrer"
+              className="location-btn location-btn-secondary"
+            >
+              Abrir en Waze
+            </a>
+          </div>
+
+          <div className="location-map-card">
+            <iframe
+              title="Ubicación de COFA"
+              src="https://www.google.com/maps?q=23%20avenida%209-60%20zona%203,%20Quetzaltenango&z=16&output=embed"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
     </main>
