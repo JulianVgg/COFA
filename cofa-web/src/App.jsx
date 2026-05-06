@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Nosotros from './pages/Nosotros'
+import Contacto from './pages/Contacto'
 import HospedajePage from './pages/servicios/HospedajePage'
 import AlimentacionPage from './pages/servicios/AlimentacionPage'
 import SalonesPage from './pages/servicios/SalonesPage'
@@ -29,7 +30,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/dispensario" element={<PlaceholderPage title="Dispensario" />} />
-        <Route path="/contacto" element={<PlaceholderPage title="Contacto" />} />
+        <Route path="/contacto" element={<Contacto />} />
         <Route path="/servicios/hospedaje" element={<HospedajePage />} />
         <Route path="/servicios/alimentacion" element={<AlimentacionPage />} />
         <Route path="/servicios/salones" element={<SalonesPage />} />
