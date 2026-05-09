@@ -50,10 +50,6 @@ function AlimentacionPage() {
         <div className="container service-hero-content food-hero-content">
           <h1 className="hero-fade reveal-delay-1">Alimentación</h1>
 
-          <p className="hero-fade reveal-delay-2">
-            Sabores tradicionales, atención organizada y opciones pensadas para
-            acompañar eventos, reuniones y actividades grupales.
-          </p>
         </div>
       </section>
 

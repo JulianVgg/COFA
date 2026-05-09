@@ -15,18 +15,10 @@ function Home() {
     salones: 0,
   })
 
-  /*
-    Esto sirve para forzar que ciertas animaciones CSS se vuelvan a montar
-    cuando regreses al Home desde otra página.
-  */
+
   const animationKey = location.key
 
-  /*
-    Reinicia el Home cada vez que entras otra vez a esta página.
-    - Vuelve al primer slide del hero.
-    - Vuelve al primer slide de cada servicio.
-    - Sube el scroll al inicio.
-  */
+
   useEffect(() => {
     setActiveSlide(0)
 
@@ -39,11 +31,7 @@ function Home() {
     window.scrollTo(0, 0)
   }, [location.key])
 
-  /*
-    Slider principal del Hero.
-    Se reinicia también cuando cambia location.key,
-    así el contador vuelve a empezar cuando regresas al Home.
-  */
+
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length)

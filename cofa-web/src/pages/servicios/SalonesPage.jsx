@@ -5,9 +5,8 @@ const salones = [
   {
     nombre: 'Salón Sesiones',
     imagenes: [
-      '/images/salones/sesiones-1.jpg',
-      '/images/salones/sesiones-2.jpg',
-      '/images/salones/sesiones-3.jpg',
+      '/images/SalonesCOFA/sesiones1.jpg',
+      '/images/SalonesCOFA/sesiones2.jpg',
     ],
     mesasSillas: '18',
     soloSillas: '—',
@@ -17,9 +16,8 @@ const salones = [
   {
     nombre: 'Salón Pedro Richard',
     imagenes: [
-      '/images/salones/pedro-richard-1.jpg',
-      '/images/salones/pedro-richard-2.jpg',
-      '/images/salones/pedro-richard-3.jpg',
+      '/images/SalonesCOFA/richard1.jpg',
+      '/images/SalonesCOFA/richard2.jpg',
     ],
     mesasSillas: '30',
     soloSillas: '60',
@@ -29,9 +27,9 @@ const salones = [
   {
     nombre: 'Salón Grijalva',
     imagenes: [
-      '/images/salones/grijalva-1.jpg',
-      '/images/salones/grijalva-2.jpg',
-      '/images/salones/grijalva-3.jpg',
+      '/images/SalonesCOFA/grijalva1.jpg',
+      '/images/SalonesCOFA/grijalva2.jpg',
+      '/images/SalonesCOFA/grijalva3.jpg',
     ],
     mesasSillas: '40',
     soloSillas: '75',
@@ -41,9 +39,8 @@ const salones = [
   {
     nombre: 'Salón José María',
     imagenes: [
-      '/images/salones/jose-maria-1.jpg',
-      '/images/salones/jose-maria-2.jpg',
-      '/images/salones/jose-maria-3.jpg',
+      '/images/SalonesCOFA/josemaria1.jpg',
+      '/images/SalonesCOFA/josemaria2.jpg',
     ],
     mesasSillas: '100',
     soloSillas: '150',
@@ -53,9 +50,8 @@ const salones = [
   {
     nombre: 'Salón Richter',
     imagenes: [
-      '/images/salones/richter-1.jpg',
-      '/images/salones/richter-2.jpg',
-      '/images/salones/richter-3.jpg',
+      '/images/SalonesCOFA/richter1.jpg',
+      '/images/SalonesCOFA/richter2.jpg',
     ],
     mesasSillas: '250',
     soloSillas: '350',
@@ -123,10 +119,6 @@ function SalonesPage() {
         <div className="container service-hero-content halls-hero-content">
           <h1 className="hero-fade reveal-delay-1">Salones</h1>
 
-          <p className="hero-fade reveal-delay-2">
-            Espacios preparados para reuniones, retiros, capacitaciones y
-            actividades grupales.
-          </p>
         </div>
       </section>
 

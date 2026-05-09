@@ -27,7 +27,7 @@ function Nosotros() {
 
               <p>
                 COFA fue pensado inicialmente como una casa de retiros para
-                personas del movimiento, con el propósito de contar con un
+                personas del Movimiento, con el propósito de contar con un
                 ambiente propio para encuentros, formación y actividades. Con el
                 tiempo, sus servicios se abrieron al público para ofrecer
                 hospedaje, alimentación y alquiler de salones con previa
@@ -103,12 +103,6 @@ function Nosotros() {
 
               <h2>De una casa de retiros a un espacio abierto al público.</h2>
 
-              <p>
-                COFA fue pensado inicialmente como una casa de retiros para
-                personas del Movimiento Familiar Cristiano en Quetzaltenango.
-                Con el tiempo, sus servicios se abrieron al público para atender
-                a grupos, instituciones y personas de diferentes contextos.
-              </p>
             </div>
           </Reveal>
 

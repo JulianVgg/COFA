@@ -2,7 +2,7 @@ export const heroSlides = [
   {
     id: 1,
     eyebrow: 'COFA',
-    title: 'Salones para retiros.',
+    title: 'Salones para eventos.',
     text: '',
     ctaPrimary: 'Ver más',
     ctaSecondary: 'Contacto',

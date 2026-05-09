@@ -8,6 +8,11 @@ import Contacto from './pages/Contacto'
 import HospedajePage from './pages/servicios/HospedajePage'
 import AlimentacionPage from './pages/servicios/AlimentacionPage'
 import SalonesPage from './pages/servicios/SalonesPage'
+import Dispensario from './pages/Dispensario'
+import MedicinaGeneralPage from './pages/dispensario/MedicinaGeneralPage'
+import OdontologiaPage from './pages/dispensario/OdontologiaPage'
+import FarmaciaPage from './pages/dispensario/FarmaciaPage'
+import EnfermeriaPage from './pages/dispensario/EnfermeriaPage'
 
 function PlaceholderPage({ title }) {
   return (
@@ -25,16 +30,33 @@ function App() {
     <>
       <ScrollToTop />
       <Navbar />
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/nosotros" element={<Nosotros />} />
+  <Route path="/dispensario" element={<Dispensario />} />
+  <Route path="/contacto" element={<Contacto />} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/dispensario" element={<PlaceholderPage title="Dispensario" />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/servicios/hospedaje" element={<HospedajePage />} />
-        <Route path="/servicios/alimentacion" element={<AlimentacionPage />} />
-        <Route path="/servicios/salones" element={<SalonesPage />} />
-      </Routes>
+  <Route path="/servicios/hospedaje" element={<HospedajePage />} />
+  <Route path="/servicios/alimentacion" element={<AlimentacionPage />} />
+  <Route path="/servicios/salones" element={<SalonesPage />} />
+
+<Route
+  path="/dispensario/servicios/medicina-general"
+  element={<MedicinaGeneralPage />}
+/>
+<Route
+  path="/dispensario/servicios/odontologia"
+  element={<OdontologiaPage />}
+/>
+<Route
+  path="/dispensario/servicios/farmacia"
+  element={<FarmaciaPage />}
+/>
+<Route
+  path="/dispensario/servicios/enfermeria"
+  element={<EnfermeriaPage />}
+/>
+</Routes>
 
       <Footer />
     </>

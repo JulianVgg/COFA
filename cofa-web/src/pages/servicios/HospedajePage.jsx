@@ -106,10 +106,6 @@ function HospedajePage() {
         <div className="container service-hero-content">
           <h1 className="hero-fade reveal-delay-1">Hospedaje</h1>
 
-          <p className="hero-fade reveal-delay-2">
-            Espacios de alojamiento pensados para grupos, encuentros y estancias
-            coordinadas.
-          </p>
         </div>
       </section>
 

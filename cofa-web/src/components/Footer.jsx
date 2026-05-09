@@ -1,4 +1,10 @@
+import { useLocation } from 'react-router-dom'
+
 function Footer() {
+  const location = useLocation()
+
+  const isDispensario = location.pathname.includes('/dispensario')
+
   const mapsUrl =
     'https://www.google.com/maps/dir/?api=1&destination=23+avenida+9-60+zona+3,+Quetzaltenango,+Guatemala'
 
@@ -8,14 +14,19 @@ function Footer() {
         <div className="footer-brand-row">
           <div className="footer-brand">
             <img
-              src="/images/logo/cofa-logo3.png"
-              alt="Logo horizontal de COFA"
+              src="/images/logo/cofa-logo2.png"
+              alt="Logo de COFA"
               className="footer-brand-logo"
             />
 
             <div className="footer-brand-copy">
-              <h3>Centro de Orientación Familiar</h3>
-              <p>COFA</p>
+              <h3>
+                {isDispensario
+                  ? 'Dispensario Sagrada Familia'
+                  : 'Centro de Orientación Familiar'}
+              </h3>
+
+              <p>{isDispensario ? 'Salud y servicio' : 'COFA'}</p>
             </div>
           </div>
         </div>
@@ -75,7 +86,9 @@ function Footer() {
 
           <div className="footer-column">
             <h4>Horarios</h4>
+
             <p>Lunes a viernes de 8:00 a 17:00 · sábados de 8:00 a 12:00</p>
+
             <p>
               COFA trabaja según reservaciones, horarios y actividades
               programadas de cada grupo.
