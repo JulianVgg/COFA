@@ -6001,3 +6001,737 @@ section.location-shell > .container {
   background-position: center;
   background-size: cover;
 }
+
+/* =========================================================
+   RESPONSIVE FINAL OPTIMIZADO - COFA / DISPENSARIO
+   Reemplaza los fixes repetidos del navbar y deja responsive global
+========================================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main,
+section,
+.container,
+.nav-shell,
+.brand-copy,
+.main-nav,
+.footer-shell,
+.location-shell {
+  min-width: 0;
+}
+
+img,
+iframe,
+video {
+  max-width: 100%;
+}
+
+@media (max-width: 1360px) {
+  .nav-shell {
+    grid-template-columns: 320px minmax(300px, 1fr) auto;
+    column-gap: 16px;
+  }
+
+  .brand-logo-box {
+    width: 320px;
+  }
+
+  .brand-logo {
+    width: 292px;
+  }
+
+  .brand-title {
+    font-size: clamp(1.75rem, 2.2vw, 2.6rem);
+  }
+
+  .main-nav {
+    gap: 12px;
+    transform: none;
+  }
+
+  .nav-socials {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .main-nav {
+    transform: none !important;
+    justify-content: center;
+  }
+
+  .nav-shell {
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --container: min(100% - 32px, 1000px);
+  }
+
+  .site-header {
+    position: relative;
+  }
+
+  .nav-shell {
+    width: 100%;
+    padding: 14px 16px 18px;
+  }
+
+  .brand-title {
+    max-width: 100%;
+  }
+
+  .main-nav {
+    gap: 12px;
+    row-gap: 12px;
+  }
+
+  .nav-dropdown-menu {
+    max-width: calc(100vw - 32px);
+  }
+
+  .hero-slider,
+  .hero-inner,
+  .hero-stage,
+  .hero-message-center {
+    min-height: 640px;
+  }
+
+  .hero-inner {
+    padding: 76px 0 108px;
+  }
+
+  .hero-brand-corner,
+  .dispensario-hero-brand {
+    left: 24px;
+    right: 24px;
+    max-width: calc(100vw - 48px);
+    word-break: normal;
+  }
+
+  .about-preview-grid,
+  .about-simple-grid,
+  .dispensario-about-grid {
+    height: auto !important;
+    min-height: auto !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-preview-copy,
+  .about-simple-copy,
+  .dispensario-about-copy {
+    min-height: auto !important;
+    padding: 64px 32px;
+  }
+
+  .about-preview-image,
+  .about-preview-image img,
+  .about-simple-image-shell,
+  .about-simple-image,
+  .dispensario-about-image,
+  .dispensario-about-image img {
+    height: auto !important;
+    min-height: 420px !important;
+  }
+
+  .services-cofa-grid,
+  .dispensario-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-cofa-card,
+  .dispensario-service-card,
+  .dispensario-service-content {
+    min-height: 460px;
+  }
+
+  .service-cofa-image-wrap {
+    min-height: 330px;
+  }
+
+  .contact-form-grid,
+  .pharmacy-main-grid,
+  .nursing-clean-grid,
+  .medical-info-grid,
+  .dental-modern-grid,
+  .hall-showcase-grid,
+  .hall-showcase-reverse .hall-showcase-grid,
+  .hotel-intro-split,
+  .hotel-intro-split-reverse,
+  .hotel-rooms-grid,
+  .hotel-rooms-grid-reverse,
+  .food-split-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================================
+   NAVBAR MOBILE LIMPIO
+========================================================= */
+
+@media (max-width: 780px) {
+  .site-header {
+    position: relative;
+  }
+
+  .nav-shell {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 18px 16px 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+  }
+
+  .brand {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+
+  .brand-logo-box {
+    width: min(250px, 72vw) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    border-right: 0 !important;
+    overflow: visible !important;
+  }
+
+  .brand-logo {
+    width: min(250px, 72vw) !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+
+  .brand-copy {
+    width: 100% !important;
+    align-items: center !important;
+    transform: none !important;
+  }
+
+  .brand-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 0.95 !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  .brand-title::after {
+    left: 50% !important;
+    bottom: -12px !important;
+    width: 150px !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .brand-script,
+  .brand-subtitle {
+    margin: 20px 0 0 !important;
+    font-size: clamp(0.85rem, 3.8vw, 1rem) !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.28em !important;
+    text-align: center !important;
+  }
+
+  .main-nav {
+    width: 100% !important;
+    max-width: 430px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform: none !important;
+    min-width: 0 !important;
+  }
+
+  .main-nav > a,
+  .nav-dropdown-trigger {
+    font-size: 1rem !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #25343a !important;
+  }
+
+  .nav-dropdown {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .nav-dropdown-menu {
+    position: static !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .nav-dropdown-menu a {
+    width: 100% !important;
+    min-height: 54px !important;
+    padding: 12px 14px !important;
+    border-radius: 999px !important;
+    background: rgba(23, 110, 166, 0.08) !important;
+    color: #25343a !important;
+    font-size: 0.92rem !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .nav-cta,
+  .main-nav .nav-cta {
+    width: min(250px, 78vw) !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    margin: 8px auto 0 !important;
+    padding: 0 28px !important;
+    border-radius: 999px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #176ea6 !important;
+    color: #ffffff !important;
+    font-size: 1.08rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    box-shadow: 0 22px 45px rgba(23, 110, 166, 0.2) !important;
+  }
+
+  .nav-socials {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin: 0 !important;
+  }
+
+  .nav-social-btn {
+    width: 54px !important;
+    height: 54px !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .main-nav-cofa {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "ubicacion servicios"
+      "nosotros dispensario"
+      "menu menu"
+      "contacto contacto"
+      "socials socials" !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 18px 16px !important;
+  }
+
+  .main-nav-cofa .nav-location-link {
+    grid-area: ubicacion !important;
+  }
+
+  .main-nav-cofa .nav-services-block {
+    display: contents !important;
+  }
+
+  .main-nav-cofa .nav-services-trigger {
+    grid-area: servicios !important;
+  }
+
+  .main-nav-cofa .nav-services-menu {
+    grid-area: menu !important;
+    width: 100% !important;
+    max-width: 430px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  .main-nav-cofa .nav-services-menu a:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: 56% !important;
+    justify-self: center !important;
+  }
+
+  .main-nav-cofa .nav-nosotros-link {
+    grid-area: nosotros !important;
+  }
+
+  .main-nav-cofa .nav-dispensario-link {
+    grid-area: dispensario !important;
+  }
+
+  .main-nav-cofa .nav-cta {
+    grid-area: contacto !important;
+  }
+
+  .main-nav-cofa .nav-socials {
+    grid-area: socials !important;
+  }
+}
+
+@media (max-width: 780px) {
+  .main-nav-dispensario {
+    display: grid !important;
+    grid-template-columns: 1fr 0.7fr 1fr !important;
+    grid-template-areas:
+      "ubicacion cofa servicios"
+      "menu menu menu"
+      "contacto contacto contacto"
+      "socials socials socials" !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 22px 8px !important;
+  }
+
+  .main-nav-dispensario .nav-location-link {
+    grid-area: ubicacion !important;
+    justify-self: center !important;
+  }
+
+  .main-nav-dispensario .nav-cofa-link {
+    grid-area: cofa !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+
+  .main-nav-dispensario .nav-services-block {
+    display: contents !important;
+  }
+
+  .main-nav-dispensario .nav-services-trigger {
+    grid-area: servicios !important;
+    justify-self: center !important;
+    align-self: center !important;
+  }
+
+  .main-nav-dispensario .nav-services-menu {
+    grid-area: menu !important;
+    width: 100% !important;
+    max-width: 430px !important;
+    margin: 16px auto 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  .main-nav-dispensario .nav-cta {
+    grid-area: contacto !important;
+    justify-self: center !important;
+  }
+
+  .main-nav-dispensario .nav-socials {
+    grid-area: socials !important;
+    justify-self: center !important;
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --container: min(100% - 24px, 1000px);
+  }
+
+  .section-shell,
+  .services-cofa-section,
+  .dispensario-services-section,
+  .contact-form-section,
+  .medical-info-section,
+  .pharmacy-main-section,
+  .nursing-clean-section,
+  .halls-intro-section,
+  .hall-showcase,
+  .location-section,
+  .dispensario-location-section {
+    padding-top: 64px !important;
+    padding-bottom: 74px !important;
+  }
+
+  .hero-slider,
+  .hero-inner,
+  .hero-stage,
+  .hero-message-center,
+  .dispensario-hero-section,
+  .dispensario-hero-inner {
+    min-height: 600px !important;
+  }
+
+  .hero-stage {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-brand-corner,
+  .dispensario-hero-brand {
+    top: 24px;
+    left: 18px;
+    right: 18px;
+    max-width: calc(100vw - 36px);
+    font-size: clamp(2rem, 10vw, 3.3rem);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-message-box h1,
+  .dispensario-hero-message h1,
+  .service-hero-content h1,
+  .medical-hero-content h1,
+  .dental-hero-content h1,
+  .pharmacy-hero-content h1,
+  .nursing-hero-content h1,
+  .halls-hero-content h1,
+  .food-hero-content h1,
+  .hospedaje-hero .service-hero-content h1 {
+    font-size: clamp(2.35rem, 12vw, 3.85rem) !important;
+    line-height: 0.95;
+  }
+
+  .hero-text,
+  .service-hero-content p,
+  .medical-hero-content p,
+  .dental-hero-content p,
+  .pharmacy-hero-content p,
+  .nursing-hero-content p,
+  .halls-hero-content p,
+  .food-hero-content p,
+  .hospedaje-hero .service-hero-content p {
+    font-size: 0.98rem !important;
+    line-height: 1.65;
+  }
+
+  .hero-actions,
+  .dispensario-hero-actions,
+  .location-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn,
+  .location-btn,
+  .contact-submit-btn,
+  .medical-whatsapp-btn,
+  .pharmacy-whatsapp-btn,
+  .nursing-whatsapp-btn,
+  .dental-whatsapp-btn,
+  .hall-contact-btn,
+  .rooms-contact-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 1.45rem;
+  }
+
+  .hero-arrow-left {
+    left: 10px;
+  }
+
+  .hero-arrow-right {
+    right: 10px;
+  }
+
+  .about-preview-copy,
+  .about-simple-copy,
+  .dispensario-about-copy,
+  .contact-info-card,
+  .contact-form-card,
+  .pharmacy-copy-card,
+  .medical-schedule-card,
+  .dental-services-panel {
+    padding: 38px 22px !important;
+    border-radius: 26px;
+  }
+
+  .about-preview-kicker,
+  .dispensario-about-main-title {
+    max-width: 100%;
+    font-size: clamp(2.55rem, 13vw, 4rem) !important;
+    letter-spacing: 0.07em;
+  }
+
+  .about-preview-title,
+  .about-simple-title,
+  .dispensario-about-copy h2,
+  .services-cofa-title,
+  .dispensario-services-head h2,
+  .contact-hero h1,
+  .contact-form-head h2,
+  .contact-info-card h2,
+  .medical-info-copy h2,
+  .pharmacy-copy-card h2,
+  .nursing-clean-title h2,
+  .halls-intro-content h2,
+  .hall-showcase-copy h2,
+  .hotel-intro-copy h2,
+  .hotel-rooms-copy h2 {
+    max-width: 100%;
+    font-size: clamp(2.25rem, 12vw, 3.65rem) !important;
+    line-height: 0.98;
+  }
+
+  .about-preview-image,
+  .about-preview-image img,
+  .about-simple-image-shell,
+  .about-simple-image,
+  .dispensario-about-image,
+  .dispensario-about-image img,
+  .pharmacy-image-card,
+  .dental-visual-card,
+  .dental-visual-img,
+  .hall-showcase-media,
+  .hotel-intro-media {
+    min-height: 300px !important;
+    border-radius: 24px;
+  }
+
+  .services-cofa-grid,
+  .dispensario-services-grid,
+  .medical-info-copy .medical-schedule-list,
+  .dental-treatment-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-cofa-card,
+  .dispensario-service-card,
+  .dispensario-service-content {
+    min-height: 390px !important;
+    border-radius: 24px;
+  }
+
+  .service-cofa-image-wrap {
+    min-height: 250px;
+  }
+
+  .location-map-card,
+  .map-shell {
+    padding: 8px;
+    border-radius: 22px;
+  }
+
+  .location-map-card iframe,
+  .map-shell iframe {
+    height: 320px !important;
+    min-height: 320px !important;
+    border-radius: 16px;
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hall-info-header,
+  .hall-info-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nursing-service-slide {
+    min-height: 420px !important;
+  }
+
+  .nursing-service-slide-content h3 {
+    font-size: clamp(2.2rem, 12vw, 3.6rem) !important;
+  }
+
+  .site-footer {
+    padding-top: 58px !important;
+  }
+
+  .footer-brand {
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .footer-brand-logo {
+    height: auto !important;
+    width: min(220px, 80vw) !important;
+    max-width: 100% !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --container: min(100% - 20px, 1000px);
+  }
+
+  .main-nav {
+    max-width: 360px !important;
+  }
+
+  .main-nav-cofa {
+    gap: 16px 12px !important;
+  }
+
+  .main-nav-dispensario {
+    grid-template-columns: 1fr 0.62fr 1fr !important;
+    gap: 20px 4px !important;
+  }
+
+  .main-nav > a,
+  .nav-dropdown-trigger {
+    font-size: 0.9rem !important;
+  }
+
+  .nav-dropdown-menu a {
+    min-height: 50px !important;
+    font-size: 0.8rem !important;
+    padding: 10px 8px !important;
+  }
+
+  .nav-cta,
+  .main-nav .nav-cta {
+    width: min(240px, 78vw) !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    font-size: 1rem !important;
+  }
+
+  .nav-social-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .hero-slider,
+  .hero-inner,
+  .hero-stage,
+  .hero-message-center,
+  .dispensario-hero-section,
+  .dispensario-hero-inner {
+    min-height: 560px !important;
+  }
+
+  .hero-controls {
+    bottom: 22px;
+  }
+}
+

@@ -13,9 +13,13 @@ function Navbar() {
     : 'https://wa.me/50259357112'
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isDispensario ? 'site-header-dispensario' : 'site-header-cofa'}`}>
       <div className="nav-shell">
-        <Link to={isDispensario ? '/dispensario' : '/'} className="brand">
+        <Link
+          to={isDispensario ? '/dispensario' : '/'}
+          className="brand"
+          aria-label={isDispensario ? 'Ir al inicio del Dispensario' : 'Ir al inicio de COFA'}
+        >
           <div className="brand-logo-box">
             <img
               src="/images/logo/cofa-logo3.png"
@@ -37,15 +41,29 @@ function Navbar() {
           </div>
         </Link>
 
-        <nav className="main-nav">
+        <nav className={`main-nav ${isDispensario ? 'main-nav-dispensario' : 'main-nav-cofa'}`}>
           {isDispensario ? (
             <>
-              <a href="/dispensario#dispensario-ubicacion">Ubicación</a>
+              <a
+                href="/dispensario#dispensario-ubicacion"
+                className="nav-location-link"
+              >
+                Ubicación
+              </a>
 
-              <div className="nav-dropdown">
-                <span className="nav-dropdown-trigger">Servicios</span>
+              <NavLink
+                to="/"
+                className="nav-cofa-link"
+              >
+                COFA
+              </NavLink>
 
-                <div className="nav-dropdown-menu">
+              <div className="nav-dropdown nav-services-block">
+                <span className="nav-dropdown-trigger nav-services-trigger">
+                  Servicios
+                </span>
+
+                <div className="nav-dropdown-menu nav-services-menu">
                   <Link to="/dispensario/servicios/medicina-general">
                     Medicina General
                   </Link>
@@ -54,7 +72,9 @@ function Navbar() {
                     Odontología
                   </Link>
 
-                  <Link to="/dispensario/servicios/farmacia">Farmacia</Link>
+                  <Link to="/dispensario/servicios/farmacia">
+                    Farmacia
+                  </Link>
 
                   <Link to="/dispensario/servicios/enfermeria">
                     Enfermería
@@ -62,30 +82,60 @@ function Navbar() {
                 </div>
               </div>
 
-              <NavLink to="/">COFA</NavLink>
-
-              <NavLink to="/dispensario/contacto" className="nav-cta">
+              <NavLink
+                to="/dispensario/contacto"
+                className="nav-cta"
+              >
                 Contacto
               </NavLink>
             </>
           ) : (
             <>
-              <a href="/#ubicacion">Ubicación</a>
+              <a
+                href="/#ubicacion"
+                className="nav-location-link"
+              >
+                Ubicación
+              </a>
 
-              <div className="nav-dropdown">
-                <span className="nav-dropdown-trigger">Servicios</span>
+              <div className="nav-dropdown nav-services-block">
+                <span className="nav-dropdown-trigger nav-services-trigger">
+                  Servicios
+                </span>
 
-                <div className="nav-dropdown-menu">
-                  <Link to="/servicios/hospedaje">Hospedaje</Link>
-                  <Link to="/servicios/alimentacion">Alimentación</Link>
-                  <Link to="/servicios/salones">Salones</Link>
+                <div className="nav-dropdown-menu nav-services-menu">
+                  <Link to="/servicios/hospedaje">
+                    Hospedaje
+                  </Link>
+
+                  <Link to="/servicios/alimentacion">
+                    Alimentación
+                  </Link>
+
+                  <Link to="/servicios/salones">
+                    Salones
+                  </Link>
                 </div>
               </div>
 
-              <NavLink to="/nosotros">Nosotros</NavLink>
-              <NavLink to="/dispensario">Dispensario</NavLink>
+              <NavLink
+                to="/nosotros"
+                className="nav-nosotros-link"
+              >
+                Nosotros
+              </NavLink>
 
-              <NavLink to="/contacto" className="nav-cta">
+              <NavLink
+                to="/dispensario"
+                className="nav-dispensario-link"
+              >
+                Dispensario
+              </NavLink>
+
+              <NavLink
+                to="/contacto"
+                className="nav-cta"
+              >
                 Contacto
               </NavLink>
             </>
