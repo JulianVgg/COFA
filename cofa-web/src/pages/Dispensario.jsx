@@ -137,7 +137,9 @@ function Dispensario() {
   }, [location.key])
 
   const goPrev = () => {
-    setActiveSlide((current) => (current - 1 + heroSlides.length) % heroSlides.length)
+    setActiveSlide(
+      (current) => (current - 1 + heroSlides.length) % heroSlides.length,
+    )
   }
 
   const goNext = () => {
@@ -173,14 +175,9 @@ function Dispensario() {
                       Ver servicios
                     </a>
 
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn btn-secondary"
-                    >
+                    <Link to="/dispensario/contacto" className="btn btn-secondary">
                       Contacto
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -232,7 +229,7 @@ function Dispensario() {
 
           <Reveal className="dispensario-about-reveal-right" delay={140}>
             <div className="dispensario-about-copy">
-              <p className="dispensario-kicker">QUIÉNES SOMOS</p>
+              <p className="dispensario-about-main-title">QUIÉNES SOMOS</p>
 
               <h2>Atención accesible con sentido humano</h2>
 
@@ -249,14 +246,9 @@ function Dispensario() {
                 básicos de salud de forma más económica que en un centro privado.
               </p>
 
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="dispensario-about-btn"
-              >
-                Solicitar información
-              </a>
+              <Link to="/dispensario/contacto" className="dispensario-about-btn">
+                Más información
+              </Link>
             </div>
           </Reveal>
         </div>

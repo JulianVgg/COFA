@@ -13,6 +13,7 @@ import MedicinaGeneralPage from './pages/dispensario/MedicinaGeneralPage'
 import OdontologiaPage from './pages/dispensario/OdontologiaPage'
 import FarmaciaPage from './pages/dispensario/FarmaciaPage'
 import EnfermeriaPage from './pages/dispensario/EnfermeriaPage'
+import ContactoDispensario from './pages/dispensario/ContactoDispensario'
 
 function PlaceholderPage({ title }) {
   return (
@@ -39,6 +40,10 @@ function App() {
   <Route path="/servicios/hospedaje" element={<HospedajePage />} />
   <Route path="/servicios/alimentacion" element={<AlimentacionPage />} />
   <Route path="/servicios/salones" element={<SalonesPage />} />
+  
+  <Route path="/dispensario" element={<Dispensario />} />
+<Route path="/dispensario/contacto" element={<ContactoDispensario />} />
+<Route path="/contacto" element={<Contacto />} />
 
 <Route
   path="/dispensario/servicios/medicina-general"
