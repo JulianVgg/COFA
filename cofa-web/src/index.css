@@ -4680,16 +4680,20 @@ section.location-shell > .container {
 
 .dispensario-service-card {
   position: relative;
+  display: block;
+  width: 100%;
   min-height: 520px;
   overflow: hidden;
   border-radius: 32px;
-  background: #ffffff;
+  background: #0b2639;
   box-shadow: 0 20px 48px rgba(18, 43, 61, 0.1);
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
   transition:
     transform 0.28s ease,
     box-shadow 0.28s ease;
 }
-
 .dispensario-service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 28px 60px rgba(18, 43, 61, 0.15);
@@ -4698,16 +4702,27 @@ section.location-shell > .container {
 .dispensario-service-image-wrap {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b2639;
 }
 
 .dispensario-service-image {
   position: absolute;
   inset: 0;
+  z-index: 0;
+  display: block;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1.04);
+  transform: scale(1.04) translateZ(0);
+  -webkit-transform: scale(1.04) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transition:
     opacity 0.8s ease,
     transform 1.2s ease;
@@ -4715,7 +4730,8 @@ section.location-shell > .container {
 
 .dispensario-service-image.active {
   opacity: 1;
-  transform: scale(1.01);
+  transform: scale(1.01) translateZ(0);
+  -webkit-transform: scale(1.01) translateZ(0);
 }
 
 .dispensario-service-overlay {
@@ -6003,8 +6019,8 @@ section.location-shell > .container {
 }
 
 /* =========================================================
-   RESPONSIVE FINAL OPTIMIZADO - COFA / DISPENSARIO
-   Reemplaza los fixes repetidos del navbar y deja responsive global
+   RESPONSIVE FINAL LIMPIO - COFA / DISPENSARIO
+   Sustituye todos los fixes anteriores del navbar móvil
 ========================================================= */
 
 html,
@@ -6013,6 +6029,8 @@ body,
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 main,
@@ -6032,7 +6050,70 @@ video {
   max-width: 100%;
 }
 
-@media (max-width: 1360px) {
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+span,
+strong {
+  overflow-wrap: break-word;
+}
+
+.btn,
+.nav-cta,
+.location-btn,
+.contact-submit-btn,
+.medical-whatsapp-btn,
+.pharmacy-whatsapp-btn,
+.nursing-whatsapp-btn,
+.dental-whatsapp-btn,
+.hall-contact-btn,
+.rooms-contact-btn {
+  white-space: normal;
+  text-align: center;
+}
+
+/* Estado base del navbar hamburguesa */
+.nav-mobile-actions,
+.nav-mobile-toggle,
+.nav-cta-mobile {
+  display: none;
+}
+
+.nav-cta-desktop {
+  display: inline-flex;
+}
+
+.nav-mobile-panel {
+  display: contents;
+}
+
+@media (min-width: 781px) {
+  .nav-mobile-actions,
+  .nav-mobile-toggle,
+  .nav-cta-mobile {
+    display: none !important;
+  }
+
+  .nav-cta-desktop {
+    display: inline-flex !important;
+  }
+
+  .nav-mobile-panel {
+    display: contents !important;
+  }
+}
+
+/* Desktop mediano */
+@media (max-width: 1360px) and (min-width: 781px) {
   .nav-shell {
     grid-template-columns: 320px minmax(300px, 1fr) auto;
     column-gap: 16px;
@@ -6060,7 +6141,7 @@ video {
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1180px) and (min-width: 781px) {
   .main-nav {
     transform: none !important;
     justify-content: center;
@@ -6071,9 +6152,13 @@ video {
   }
 }
 
-@media (max-width: 900px) {
+/* =========================================================
+   NAVBAR MOBILE FINAL
+========================================================= */
+
+@media (max-width: 780px) {
   :root {
-    --container: min(100% - 32px, 1000px);
+    --container: min(100% - 24px, 1000px);
   }
 
   .site-header {
@@ -6081,23 +6166,425 @@ video {
   }
 
   .nav-shell {
-    width: 100%;
-    padding: 14px 16px 18px;
+    width: 100% !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding: 18px 16px 26px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+
+  .brand {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+
+  .brand-logo-box {
+    width: min(250px, 72vw) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border-right: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  .brand-logo {
+    width: min(250px, 72vw) !important;
+    max-width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .brand-copy {
+    width: 100% !important;
+    align-items: center !important;
+    transform: none !important;
+    overflow: visible !important;
   }
 
   .brand-title {
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 0.95 !important;
+    text-align: center !important;
+    white-space: normal !important;
   }
 
-  .main-nav {
-    gap: 12px;
-    row-gap: 12px;
+  .brand-title::after {
+    left: 50% !important;
+    bottom: -12px !important;
+    width: 150px !important;
+    transform: translateX(-50%) !important;
   }
 
-  .nav-dropdown-menu {
-    max-width: calc(100vw - 32px);
+  .brand-script,
+  .brand-subtitle {
+    margin: 20px 0 0 !important;
+    font-size: clamp(0.85rem, 3.8vw, 1rem) !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.28em !important;
+    text-align: center !important;
   }
 
+  .main-nav,
+  .main-nav-cofa,
+  .main-nav-dispensario {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+    transform: none !important;
+    min-width: 0 !important;
+  }
+
+  .nav-mobile-actions {
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 18px !important;
+  }
+
+  .nav-mobile-toggle,
+  .nav-cta-mobile {
+    min-height: 62px !important;
+    height: 62px !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    font-weight: 950 !important;
+    line-height: 1 !important;
+  }
+
+  .nav-mobile-toggle {
+    width: 158px !important;
+    padding: 0 20px !important;
+    border: 0 !important;
+    background: #eef5f8 !important;
+    color: #25343a !important;
+    gap: 10px !important;
+    cursor: pointer !important;
+    box-shadow: 0 14px 30px rgba(18, 43, 61, 0.06) !important;
+  }
+
+  .nav-cta-mobile {
+    width: 260px !important;
+    padding: 0 24px !important;
+    background: linear-gradient(135deg, var(--blue), var(--blue-deep)) !important;
+    color: #ffffff !important;
+    box-shadow: 0 18px 38px rgba(23, 110, 166, 0.22) !important;
+  }
+
+  .nav-mobile-toggle-icon {
+    width: 22px !important;
+    height: 16px !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-mobile-toggle-icon span {
+    width: 100% !important;
+    height: 3px !important;
+    border-radius: 999px !important;
+    background: #0d547d !important;
+    display: block !important;
+    transition: transform 0.25s ease, opacity 0.25s ease !important;
+  }
+
+  .mobile-menu-open .nav-mobile-toggle-icon span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg) !important;
+  }
+
+  .mobile-menu-open .nav-mobile-toggle-icon span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  .mobile-menu-open .nav-mobile-toggle-icon span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg) !important;
+  }
+
+  .nav-cta-desktop,
+  .nav-mobile-panel .nav-cta,
+  .nav-mobile-panel .nav-cta-desktop {
+    display: none !important;
+  }
+
+  .nav-mobile-panel {
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    overflow: hidden !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+    transition: max-height 0.36s ease, opacity 0.26s ease, transform 0.26s ease !important;
+  }
+
+  .mobile-menu-open .nav-mobile-panel {
+    max-height: 760px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  .nav-mobile-panel .nav-dropdown,
+  .nav-mobile-panel .nav-services-block,
+  .nav-mobile-panel .nav-dropdown-menu,
+  .nav-mobile-panel .nav-services-menu {
+    display: contents !important;
+    position: static !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  .nav-mobile-panel .nav-services-trigger {
+    display: none !important;
+  }
+
+  .nav-mobile-panel > a,
+  .nav-mobile-panel .nav-dropdown-menu a,
+  .nav-mobile-panel .nav-services-menu a {
+    width: 100% !important;
+    min-height: 56px !important;
+    margin: 0 !important;
+    padding: 10px 14px !important;
+    border-radius: 999px !important;
+    background: #edf4f7 !important;
+    color: #25343a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.92rem !important;
+    font-weight: 950 !important;
+    line-height: 1.12 !important;
+    box-shadow: none !important;
+  }
+
+  .nav-mobile-panel > a::after,
+  .nav-mobile-panel .nav-dropdown-menu a::after,
+  .nav-mobile-panel .nav-services-menu a::after {
+    display: none !important;
+  }
+
+  .nav-socials {
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+
+  .nav-social-btn {
+    width: 58px !important;
+    height: 58px !important;
+    background: rgba(23, 110, 166, 0.07) !important;
+  }
+
+  .nav-social-icon {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  .nav-social-icon-whatsapp {
+    width: 29px !important;
+    height: 29px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-shell {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .brand-logo-box,
+  .brand-logo {
+    width: min(220px, 72vw) !important;
+  }
+
+  .brand-title {
+    font-size: clamp(1.8rem, 8.8vw, 2.6rem) !important;
+  }
+
+  .nav-mobile-actions,
+  .nav-mobile-panel {
+    max-width: 390px !important;
+  }
+
+  .nav-mobile-actions {
+    gap: 12px !important;
+  }
+
+  .nav-mobile-toggle {
+    width: 140px !important;
+  }
+
+  .nav-cta-mobile {
+    width: 225px !important;
+  }
+
+  .nav-mobile-toggle,
+  .nav-cta-mobile {
+    min-height: 58px !important;
+    height: 58px !important;
+    font-size: 0.96rem !important;
+  }
+
+  .nav-mobile-panel {
+    gap: 10px !important;
+  }
+
+  .nav-mobile-panel > a,
+  .nav-mobile-panel .nav-dropdown-menu a,
+  .nav-mobile-panel .nav-services-menu a {
+    min-height: 52px !important;
+    font-size: 0.84rem !important;
+    padding: 9px 8px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  :root {
+    --container: min(100% - 20px, 1000px);
+  }
+
+  .brand-title {
+    font-size: clamp(1.68rem, 8.5vw, 2.25rem) !important;
+  }
+
+  .brand-script,
+  .brand-subtitle {
+    letter-spacing: 0.2em !important;
+    font-size: 0.78rem !important;
+  }
+
+  .nav-mobile-actions,
+  .nav-mobile-panel {
+    max-width: 340px !important;
+  }
+
+  .nav-mobile-toggle {
+    width: 128px !important;
+  }
+
+  .nav-cta-mobile {
+    width: 200px !important;
+  }
+
+  .nav-mobile-toggle,
+  .nav-cta-mobile {
+    min-height: 54px !important;
+    height: 54px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .nav-mobile-panel > a,
+  .nav-mobile-panel .nav-dropdown-menu a,
+  .nav-mobile-panel .nav-services-menu a {
+    min-height: 50px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .nav-social-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE GLOBAL FINAL
+========================================================= */
+
+.hero-slider,
+.hero-inner,
+.hero-stage,
+.hero-message-center,
+.dispensario-hero-section,
+.dispensario-hero-inner {
+  min-height: 100svh;
+}
+
+@supports not (height: 100svh) {
+  .hero-slider,
+  .hero-inner,
+  .hero-stage,
+  .hero-message-center,
+  .dispensario-hero-section,
+  .dispensario-hero-inner {
+    min-height: 100vh;
+  }
+}
+
+.hero-slide,
+.dispensario-hero-slide,
+.service-cofa-image,
+.dispensario-service-image,
+.hall-carousel-slide,
+.hotel-room-slide,
+.food-slide,
+.nursing-service-slide-img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.dispensario-about-image img,
+.about-preview-image img,
+.service-cofa-image,
+.dispensario-service-image,
+.hall-carousel-slide,
+.hotel-room-slide,
+.food-slide,
+.nursing-service-slide-img,
+.pharmacy-image-card img,
+.dental-visual-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
   .hero-slider,
   .hero-inner,
   .hero-stage,
@@ -6114,7 +6601,24 @@ video {
     left: 24px;
     right: 24px;
     max-width: calc(100vw - 48px);
-    word-break: normal;
+  }
+
+  .about-preview-grid,
+  .about-simple-grid,
+  .dispensario-about-grid,
+  .contact-form-grid,
+  .pharmacy-main-grid,
+  .nursing-clean-grid,
+  .medical-info-grid,
+  .dental-modern-grid,
+  .hall-showcase-grid,
+  .hall-showcase-reverse .hall-showcase-grid,
+  .hotel-intro-split,
+  .hotel-intro-split-reverse,
+  .hotel-rooms-grid,
+  .hotel-rooms-grid-reverse,
+  .food-split-grid {
+    grid-template-columns: 1fr !important;
   }
 
   .about-preview-grid,
@@ -6122,7 +6626,6 @@ video {
   .dispensario-about-grid {
     height: auto !important;
     min-height: auto !important;
-    grid-template-columns: 1fr !important;
   }
 
   .about-preview-copy,
@@ -6156,305 +6659,9 @@ video {
   .service-cofa-image-wrap {
     min-height: 330px;
   }
-
-  .contact-form-grid,
-  .pharmacy-main-grid,
-  .nursing-clean-grid,
-  .medical-info-grid,
-  .dental-modern-grid,
-  .hall-showcase-grid,
-  .hall-showcase-reverse .hall-showcase-grid,
-  .hotel-intro-split,
-  .hotel-intro-split-reverse,
-  .hotel-rooms-grid,
-  .hotel-rooms-grid-reverse,
-  .food-split-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* =========================================================
-   NAVBAR MOBILE LIMPIO
-========================================================= */
-
-@media (max-width: 780px) {
-  .site-header {
-    position: relative;
-  }
-
-  .nav-shell {
-    width: 100% !important;
-    min-height: auto !important;
-    padding: 18px 16px 24px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 18px !important;
-  }
-
-  .brand {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 12px !important;
-    text-align: center !important;
-  }
-
-  .brand-logo-box {
-    width: min(250px, 72vw) !important;
-    height: auto !important;
-    min-height: 0 !important;
-    border-right: 0 !important;
-    overflow: visible !important;
-  }
-
-  .brand-logo {
-    width: min(250px, 72vw) !important;
-    max-width: 100% !important;
-    transform: none !important;
-  }
-
-  .brand-copy {
-    width: 100% !important;
-    align-items: center !important;
-    transform: none !important;
-  }
-
-  .brand-title {
-    width: 100% !important;
-    max-width: 100% !important;
-    font-size: clamp(2rem, 8vw, 3rem) !important;
-    line-height: 0.95 !important;
-    text-align: center !important;
-    white-space: normal !important;
-  }
-
-  .brand-title::after {
-    left: 50% !important;
-    bottom: -12px !important;
-    width: 150px !important;
-    transform: translateX(-50%) !important;
-  }
-
-  .brand-script,
-  .brand-subtitle {
-    margin: 20px 0 0 !important;
-    font-size: clamp(0.85rem, 3.8vw, 1rem) !important;
-    line-height: 1.35 !important;
-    letter-spacing: 0.28em !important;
-    text-align: center !important;
-  }
-
-  .main-nav {
-    width: 100% !important;
-    max-width: 430px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    transform: none !important;
-    min-width: 0 !important;
-  }
-
-  .main-nav > a,
-  .nav-dropdown-trigger {
-    font-size: 1rem !important;
-    font-weight: 900 !important;
-    line-height: 1.1 !important;
-    text-align: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    color: #25343a !important;
-  }
-
-  .nav-dropdown {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .nav-dropdown-menu {
-    position: static !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    transform: none !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-  }
-
-  .nav-dropdown-menu a {
-    width: 100% !important;
-    min-height: 54px !important;
-    padding: 12px 14px !important;
-    border-radius: 999px !important;
-    background: rgba(23, 110, 166, 0.08) !important;
-    color: #25343a !important;
-    font-size: 0.92rem !important;
-    font-weight: 900 !important;
-    line-height: 1.15 !important;
-    text-align: center !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .nav-cta,
-  .main-nav .nav-cta {
-    width: min(250px, 78vw) !important;
-    height: 64px !important;
-    min-height: 64px !important;
-    margin: 8px auto 0 !important;
-    padding: 0 28px !important;
-    border-radius: 999px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #176ea6 !important;
-    color: #ffffff !important;
-    font-size: 1.08rem !important;
-    font-weight: 900 !important;
-    line-height: 1 !important;
-    text-align: center !important;
-    box-shadow: 0 22px 45px rgba(23, 110, 166, 0.2) !important;
-  }
-
-  .nav-socials {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 16px !important;
-    margin: 0 !important;
-  }
-
-  .nav-social-btn {
-    width: 54px !important;
-    height: 54px !important;
-  }
-}
-
-@media (max-width: 780px) {
-  .main-nav-cofa {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-areas:
-      "ubicacion servicios"
-      "nosotros dispensario"
-      "menu menu"
-      "contacto contacto"
-      "socials socials" !important;
-    align-items: center !important;
-    justify-items: center !important;
-    gap: 18px 16px !important;
-  }
-
-  .main-nav-cofa .nav-location-link {
-    grid-area: ubicacion !important;
-  }
-
-  .main-nav-cofa .nav-services-block {
-    display: contents !important;
-  }
-
-  .main-nav-cofa .nav-services-trigger {
-    grid-area: servicios !important;
-  }
-
-  .main-nav-cofa .nav-services-menu {
-    grid-area: menu !important;
-    width: 100% !important;
-    max-width: 430px !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-  }
-
-  .main-nav-cofa .nav-services-menu a:last-child:nth-child(odd) {
-    grid-column: 1 / -1 !important;
-    width: 56% !important;
-    justify-self: center !important;
-  }
-
-  .main-nav-cofa .nav-nosotros-link {
-    grid-area: nosotros !important;
-  }
-
-  .main-nav-cofa .nav-dispensario-link {
-    grid-area: dispensario !important;
-  }
-
-  .main-nav-cofa .nav-cta {
-    grid-area: contacto !important;
-  }
-
-  .main-nav-cofa .nav-socials {
-    grid-area: socials !important;
-  }
-}
-
-@media (max-width: 780px) {
-  .main-nav-dispensario {
-    display: grid !important;
-    grid-template-columns: 1fr 0.7fr 1fr !important;
-    grid-template-areas:
-      "ubicacion cofa servicios"
-      "menu menu menu"
-      "contacto contacto contacto"
-      "socials socials socials" !important;
-    align-items: center !important;
-    justify-items: center !important;
-    gap: 22px 8px !important;
-  }
-
-  .main-nav-dispensario .nav-location-link {
-    grid-area: ubicacion !important;
-    justify-self: center !important;
-  }
-
-  .main-nav-dispensario .nav-cofa-link {
-    grid-area: cofa !important;
-    justify-self: center !important;
-    align-self: center !important;
-  }
-
-  .main-nav-dispensario .nav-services-block {
-    display: contents !important;
-  }
-
-  .main-nav-dispensario .nav-services-trigger {
-    grid-area: servicios !important;
-    justify-self: center !important;
-    align-self: center !important;
-  }
-
-  .main-nav-dispensario .nav-services-menu {
-    grid-area: menu !important;
-    width: 100% !important;
-    max-width: 430px !important;
-    margin: 16px auto 0 !important;
-    padding: 0 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-  }
-
-  .main-nav-dispensario .nav-cta {
-    grid-area: contacto !important;
-    justify-self: center !important;
-  }
-
-  .main-nav-dispensario .nav-socials {
-    grid-area: socials !important;
-    justify-self: center !important;
-  }
 }
 
 @media (max-width: 680px) {
-  :root {
-    --container: min(100% - 24px, 1000px);
-  }
-
   .section-shell,
   .services-cofa-section,
   .dispensario-services-section,
@@ -6641,15 +6848,6 @@ video {
     border-radius: 16px;
   }
 
-  .contact-form-row {
-    grid-template-columns: 1fr !important;
-  }
-
-  .hall-info-header,
-  .hall-info-row {
-    grid-template-columns: 1fr !important;
-  }
-
   .nursing-service-slide {
     min-height: 420px !important;
   }
@@ -6677,61 +6875,116 @@ video {
     grid-template-columns: 1fr !important;
     text-align: center;
   }
+
+  .dispensario-about-section,
+  .dispensario-about-grid {
+    background: #ffffff !important;
+    gap: 0 !important;
+  }
+
+  .dispensario-about-image {
+    width: 100% !important;
+    min-height: 360px !important;
+    height: 360px !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+  }
+
+  .dispensario-about-image img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 360px !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 0 !important;
+  }
+
+  .dispensario-about-copy {
+    border-radius: 0 !important;
+  }
+}
+
+@media (min-width: 681px) and (max-width: 1024px) {
+  .services-cofa-grid,
+  .dispensario-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .service-cofa-card,
+  .dispensario-service-card,
+  .dispensario-service-content {
+    min-height: 460px !important;
+  }
+
+  .section-shell,
+  .services-cofa-section,
+  .dispensario-services-section {
+    padding-top: 78px !important;
+    padding-bottom: 88px !important;
+  }
+}
+
+@supports (padding: max(0px)) {
+  .site-header {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* =========================================================
+   FIX SOMBRA CONTACTO NAVBAR MOBILE
+========================================================= */
+
+@media (max-width: 780px) {
+  .nav-cta-mobile {
+    box-shadow: 0 12px 26px rgba(23, 110, 166, 0.14) !important;
+  }
+
+  .mobile-menu-open .nav-cta-mobile {
+    box-shadow: none !important;
+  }
+
+  .mobile-menu-open .nav-mobile-panel {
+    margin-top: 8px !important;
+  }
+}
+/* =========================================================
+   LOGO MÁS GRANDE EN MÓVIL
+========================================================= */
+
+@media (max-width: 780px) {
+  .brand-logo-box {
+    width: min(310px, 82vw) !important;
+  }
+
+  .brand-logo {
+    width: min(310px, 82vw) !important;
+  }
 }
 
 @media (max-width: 430px) {
-  :root {
-    --container: min(100% - 20px, 1000px);
+  .brand-logo-box {
+    width: min(285px, 84vw) !important;
   }
 
-  .main-nav {
-    max-width: 360px !important;
-  }
-
-  .main-nav-cofa {
-    gap: 16px 12px !important;
-  }
-
-  .main-nav-dispensario {
-    grid-template-columns: 1fr 0.62fr 1fr !important;
-    gap: 20px 4px !important;
-  }
-
-  .main-nav > a,
-  .nav-dropdown-trigger {
-    font-size: 0.9rem !important;
-  }
-
-  .nav-dropdown-menu a {
-    min-height: 50px !important;
-    font-size: 0.8rem !important;
-    padding: 10px 8px !important;
-  }
-
-  .nav-cta,
-  .main-nav .nav-cta {
-    width: min(240px, 78vw) !important;
-    height: 60px !important;
-    min-height: 60px !important;
-    font-size: 1rem !important;
-  }
-
-  .nav-social-btn {
-    width: 50px !important;
-    height: 50px !important;
-  }
-
-  .hero-slider,
-  .hero-inner,
-  .hero-stage,
-  .hero-message-center,
-  .dispensario-hero-section,
-  .dispensario-hero-inner {
-    min-height: 560px !important;
-  }
-
-  .hero-controls {
-    bottom: 22px;
+  .brand-logo {
+    width: min(285px, 84vw) !important;
   }
 }
-

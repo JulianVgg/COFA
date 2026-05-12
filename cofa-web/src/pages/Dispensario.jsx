@@ -15,8 +15,6 @@ function Dispensario() {
 
   const animationKey = location.key
 
-  const dispensarioWhatsapp = '50237908767'
-
   const heroSlides = useMemo(
     () => [
       {
@@ -92,6 +90,10 @@ function Dispensario() {
     [],
   )
 
+  const serviceImagePreloadList = useMemo(() => {
+    return dispensarioServices.flatMap((service) => service.images)
+  }, [dispensarioServices])
+
   useEffect(() => {
     setActiveSlide(0)
 
@@ -136,6 +138,13 @@ function Dispensario() {
     return () => clearInterval(timer)
   }, [location.key])
 
+  useEffect(() => {
+    serviceImagePreloadList.forEach((src) => {
+      const image = new Image()
+      image.src = src
+    })
+  }, [serviceImagePreloadList])
+
   const goPrev = () => {
     setActiveSlide(
       (current) => (current - 1 + heroSlides.length) % heroSlides.length,
@@ -145,10 +154,6 @@ function Dispensario() {
   const goNext = () => {
     setActiveSlide((current) => (current + 1) % heroSlides.length)
   }
-
-  const whatsappUrl = `https://wa.me/${dispensarioWhatsapp}?text=${encodeURIComponent(
-    'Hola, quisiera solicitar información sobre los servicios del Dispensario Sagrada Familia.',
-  )}`
 
   return (
     <main className="dispensario-page" key={animationKey}>
@@ -160,7 +165,7 @@ function Dispensario() {
               className={`dispensario-hero-slide ${
                 index === activeSlide ? 'active' : ''
               }`}
-              style={{ backgroundImage: `url(${slide.image})` }}
+              style={{ backgroundImage: `url("${slide.image}")` }}
             >
               <div className="dispensario-hero-layer" />
 
@@ -223,6 +228,8 @@ function Dispensario() {
               <img
                 src="/images/hero/Dispensario.jpg"
                 alt="Dispensario Sagrada Familia"
+                loading="eager"
+                decoding="async"
               />
             </div>
           </Reveal>
@@ -268,34 +275,54 @@ function Dispensario() {
           </Reveal>
 
           <div className="dispensario-services-grid">
-            {dispensarioServices.map((service, index) => (
-              <Reveal key={`${service.id}-${animationKey}`} delay={index * 120}>
-                <Link
-                  to={`/dispensario/servicios/${service.id}`}
-                  className="dispensario-service-card"
-                >
-                  <div className="dispensario-service-image-wrap">
-                    {service.images.map((image, imgIndex) => (
-                      <img
-                        key={image}
-                        src={image}
-                        alt={service.title}
-                        className={`dispensario-service-image ${
-                          imgIndex === serviceSlides[service.key] ? 'active' : ''
-                        }`}
-                      />
-                    ))}
+            {dispensarioServices.map((service, index) => {
+              const activeImageIndex = serviceSlides[service.key] ?? 0
+              const activeImage = service.images[activeImageIndex] || service.images[0]
 
-                    <div className="dispensario-service-overlay" />
-                  </div>
+              return (
+                <Reveal key={`${service.id}-${animationKey}`} delay={index * 120}>
+                  <Link
+                    to={`/dispensario/servicios/${service.id}`}
+                    className="dispensario-service-card"
+                    aria-label={`Ver servicio de ${service.title}`}
+                  >
+                    <div
+                      className="dispensario-service-image-wrap"
+                      style={{
+                        backgroundImage: `url("${activeImage}")`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                      }}
+                    >
+                      {service.images.map((image, imgIndex) => (
+                        <img
+                          key={image}
+                          src={image}
+                          alt={service.title}
+                          loading="eager"
+                          decoding="async"
+                          fetchPriority={index === 0 && imgIndex === 0 ? 'high' : 'auto'}
+                          className={`dispensario-service-image ${
+                            imgIndex === activeImageIndex ? 'active' : ''
+                          }`}
+                          onError={(event) => {
+                            event.currentTarget.style.display = 'none'
+                          }}
+                        />
+                      ))}
 
-                  <div className="dispensario-service-content">
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
+                      <div className="dispensario-service-overlay" />
+                    </div>
+
+                    <div className="dispensario-service-content">
+                      <h3>{service.title}</h3>
+                      <p>{service.description}</p>
+                    </div>
+                  </Link>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 
 function Navbar() {
   const location = useLocation()
   const isDispensario = location.pathname.startsWith('/dispensario')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const facebookUrl = isDispensario
     ? 'http://facebook.com/people/Dispensario-Mfc/61576941128234/?mibextid=wwXIfr&rdid=bazoUIweQve80rZt&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18wRfVLoPi%2F%3Fmibextid%3DwwXIfr'
@@ -12,13 +14,28 @@ function Navbar() {
     ? 'https://wa.me/50237908767'
     : 'https://wa.me/50259357112'
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [location.pathname, location.hash])
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
+
   return (
-    <header className={`site-header ${isDispensario ? 'site-header-dispensario' : 'site-header-cofa'}`}>
+    <header
+      className={`site-header ${
+        isDispensario ? 'site-header-dispensario' : 'site-header-cofa'
+      }`}
+    >
       <div className="nav-shell">
         <Link
           to={isDispensario ? '/dispensario' : '/'}
           className="brand"
-          aria-label={isDispensario ? 'Ir al inicio del Dispensario' : 'Ir al inicio de COFA'}
+          aria-label={
+            isDispensario ? 'Ir al inicio del Dispensario' : 'Ir al inicio de COFA'
+          }
+          onClick={closeMobileMenu}
         >
           <div className="brand-logo-box">
             <img
@@ -41,105 +58,147 @@ function Navbar() {
           </div>
         </Link>
 
-        <nav className={`main-nav ${isDispensario ? 'main-nav-dispensario' : 'main-nav-cofa'}`}>
-          {isDispensario ? (
-            <>
-              <a
-                href="/dispensario#dispensario-ubicacion"
-                className="nav-location-link"
-              >
-                Ubicación
-              </a>
+        <nav
+          className={`main-nav ${
+            isDispensario ? 'main-nav-dispensario' : 'main-nav-cofa'
+          } ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}
+        >
+          <div className="nav-mobile-actions">
+            <button
+              type="button"
+              className="nav-mobile-toggle"
+              onClick={() => setIsMobileMenuOpen((current) => !current)}
+              aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className="nav-mobile-toggle-icon" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
+              <span>{isMobileMenuOpen ? 'Cerrar' : 'Menú'}</span>
+            </button>
 
-              <NavLink
-                to="/"
-                className="nav-cofa-link"
-              >
-                COFA
-              </NavLink>
+            <NavLink
+              to={isDispensario ? '/dispensario/contacto' : '/contacto'}
+              className="nav-cta nav-cta-mobile"
+              onClick={closeMobileMenu}
+            >
+              Contacto
+            </NavLink>
+          </div>
 
-              <div className="nav-dropdown nav-services-block">
-                <span className="nav-dropdown-trigger nav-services-trigger">
-                  Servicios
-                </span>
+          <div className="nav-mobile-panel">
+            {isDispensario ? (
+              <>
+                <a
+                  href="/dispensario#dispensario-ubicacion"
+                  className="nav-location-link"
+                  onClick={closeMobileMenu}
+                >
+                  Ubicación
+                </a>
 
-                <div className="nav-dropdown-menu nav-services-menu">
-                  <Link to="/dispensario/servicios/medicina-general">
-                    Medicina General
-                  </Link>
+                <NavLink to="/" className="nav-cofa-link" onClick={closeMobileMenu}>
+                  COFA
+                </NavLink>
 
-                  <Link to="/dispensario/servicios/odontologia">
-                    Odontología
-                  </Link>
+                <div className="nav-dropdown nav-services-block">
+                  <span className="nav-dropdown-trigger nav-services-trigger">
+                    Servicios
+                  </span>
 
-                  <Link to="/dispensario/servicios/farmacia">
-                    Farmacia
-                  </Link>
+                  <div className="nav-dropdown-menu nav-services-menu">
+                    <Link
+                      to="/dispensario/servicios/medicina-general"
+                      onClick={closeMobileMenu}
+                    >
+                      Medicina General
+                    </Link>
 
-                  <Link to="/dispensario/servicios/enfermeria">
-                    Enfermería
-                  </Link>
+                    <Link
+                      to="/dispensario/servicios/odontologia"
+                      onClick={closeMobileMenu}
+                    >
+                      Odontología
+                    </Link>
+
+                    <Link
+                      to="/dispensario/servicios/farmacia"
+                      onClick={closeMobileMenu}
+                    >
+                      Farmacia
+                    </Link>
+
+                    <Link
+                      to="/dispensario/servicios/enfermeria"
+                      onClick={closeMobileMenu}
+                    >
+                      Enfermería
+                    </Link>
+                  </div>
                 </div>
-              </div>
 
-              <NavLink
-                to="/dispensario/contacto"
-                className="nav-cta"
-              >
-                Contacto
-              </NavLink>
-            </>
-          ) : (
-            <>
-              <a
-                href="/#ubicacion"
-                className="nav-location-link"
-              >
-                Ubicación
-              </a>
+                <NavLink
+                  to="/dispensario/contacto"
+                  className="nav-cta nav-cta-desktop"
+                  onClick={closeMobileMenu}
+                >
+                  Contacto
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <a href="/#ubicacion" className="nav-location-link" onClick={closeMobileMenu}>
+                  Ubicación
+                </a>
 
-              <div className="nav-dropdown nav-services-block">
-                <span className="nav-dropdown-trigger nav-services-trigger">
-                  Servicios
-                </span>
+                <div className="nav-dropdown nav-services-block">
+                  <span className="nav-dropdown-trigger nav-services-trigger">
+                    Servicios
+                  </span>
 
-                <div className="nav-dropdown-menu nav-services-menu">
-                  <Link to="/servicios/hospedaje">
-                    Hospedaje
-                  </Link>
+                  <div className="nav-dropdown-menu nav-services-menu">
+                    <Link to="/servicios/hospedaje" onClick={closeMobileMenu}>
+                      Hospedaje
+                    </Link>
 
-                  <Link to="/servicios/alimentacion">
-                    Alimentación
-                  </Link>
+                    <Link to="/servicios/alimentacion" onClick={closeMobileMenu}>
+                      Alimentación
+                    </Link>
 
-                  <Link to="/servicios/salones">
-                    Salones
-                  </Link>
+                    <Link to="/servicios/salones" onClick={closeMobileMenu}>
+                      Salones
+                    </Link>
+                  </div>
                 </div>
-              </div>
 
-              <NavLink
-                to="/nosotros"
-                className="nav-nosotros-link"
-              >
-                Nosotros
-              </NavLink>
+                <NavLink
+                  to="/nosotros"
+                  className="nav-nosotros-link"
+                  onClick={closeMobileMenu}
+                >
+                  Nosotros
+                </NavLink>
 
-              <NavLink
-                to="/dispensario"
-                className="nav-dispensario-link"
-              >
-                Dispensario
-              </NavLink>
+                <NavLink
+                  to="/dispensario"
+                  className="nav-dispensario-link"
+                  onClick={closeMobileMenu}
+                >
+                  Dispensario
+                </NavLink>
 
-              <NavLink
-                to="/contacto"
-                className="nav-cta"
-              >
-                Contacto
-              </NavLink>
-            </>
-          )}
+                <NavLink
+                  to="/contacto"
+                  className="nav-cta nav-cta-desktop"
+                  onClick={closeMobileMenu}
+                >
+                  Contacto
+                </NavLink>
+              </>
+            )}
+          </div>
 
           <div className="nav-socials">
             <a
@@ -150,11 +209,7 @@ function Navbar() {
               aria-label={isDispensario ? 'Facebook del Dispensario' : 'Facebook de COFA'}
               title={isDispensario ? 'Facebook del Dispensario' : 'Facebook de COFA'}
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="nav-social-icon"
-                aria-hidden="true"
-              >
+              <svg viewBox="0 0 24 24" className="nav-social-icon" aria-hidden="true">
                 <path d="M13.5 21v-8.1h2.7l.4-3.2h-3.1V7.7c0-.9.2-1.6 1.6-1.6h1.7V3.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4v2.2H8v3.2h2.1V21h3.4z" />
               </svg>
             </a>
@@ -164,12 +219,8 @@ function Navbar() {
               target="_blank"
               rel="noreferrer"
               className="nav-social-btn"
-              aria-label={
-                isDispensario ? 'WhatsApp del Dispensario' : 'WhatsApp de COFA'
-              }
-              title={
-                isDispensario ? 'WhatsApp del Dispensario' : 'WhatsApp de COFA'
-              }
+              aria-label={isDispensario ? 'WhatsApp del Dispensario' : 'WhatsApp de COFA'}
+              title={isDispensario ? 'WhatsApp del Dispensario' : 'WhatsApp de COFA'}
             >
               <svg
                 viewBox="0 0 32 32"
