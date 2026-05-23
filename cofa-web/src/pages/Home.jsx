@@ -46,7 +46,7 @@ function Home() {
         id: 'hospedaje',
         title: 'Hospedaje',
         description:
-          'Estancias cómodas para grupos y personas que buscan un ambiente acogedor y funcional.',
+        'Estancias cómodas para grupos y personas que buscan un ambiente tranquilo y acogedor.',
         images: [
           '/images/services/hospedaje-1.jpg',
           '/images/services/hospedaje-2.jpg',
@@ -57,7 +57,7 @@ function Home() {
         id: 'alimentacion',
         title: 'Alimentación',
         description:
-          'Servicio de alimentación para actividades, convivencias y grupos con previa coordinación.',
+        'Servicio de alimentación con productos de calidad para sus actividades.',
         images: [
           '/images/services/alimentacion-1.jpg',
           '/images/services/alimentacion-2.jpg',
@@ -204,12 +204,12 @@ function Home() {
       <div className="about-preview-copy">
         <p className="about-preview-kicker">QUIÉNES SOMOS</p>
 
-        <h2 className="about-preview-title">Servicio y atención humana</h2>
+        <h2 className="about-preview-title">Servicio y atención de calidad</h2>
 
         <p className="about-preview-text">
-          COFA es un espacio orientado a brindar un ambiente acogedor,
-          accesible y confiable para grupos, encuentros, reservaciones
-          y actividades.
+        COFA es un espacio orientado a brindar un ambiente acogedor,
+        accesible y confiable para grupos, organizaciones, personas
+        particulares y entidades religiosas.
         </p>
 
         <Link to="/nosotros" className="about-preview-btn">
@@ -235,8 +235,8 @@ function Home() {
             <div className="services-cofa-head">
               <h2 className="services-cofa-title">Servicios</h2>
               <p className="services-cofa-intro">
-                Ofrecemos espacios y servicios pensados para grupos,
-                encuentros y actividades en un ambiente accesible y acogedor.
+               Ofrecemos espacios y servicios en un ambiente tranquilo,
+                acogedor y accesible.
               </p>
             </div>
           </Reveal>

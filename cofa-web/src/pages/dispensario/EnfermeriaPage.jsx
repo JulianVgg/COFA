@@ -7,7 +7,7 @@ const serviciosEnfermeria = [
     image: '/images/enfermeriaservicios/signosvitales.jpg',
   },
   {
-    title: 'Aplicación de medicamentos',
+    title: 'Aplicación de medicamentos inyectables',
     image:  '/images/enfermeriaservicios/aplicarmeds.jpg',
   },
   {

@@ -5981,29 +5981,6 @@ section.location-shell > .container {
 .dispensary-contact-hero {
   background:
     linear-gradient(90deg, rgba(11, 35, 53, 0.82) 0%, rgba(11, 35, 53, 0.56) 42%, rgba(11, 35, 53, 0.24) 100%),
-    url('/images/dispensario/dispensario-hero.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.dispensary-contact-info-card {
-  background:
-    linear-gradient(180deg, rgba(23, 102, 154, 0.96), rgba(20, 92, 139, 0.96)),
-    url('/images/dispensario/dispensario-info.jpg');
-  background-position: center;
-  background-size: cover;
-}/* =========================================================
-   PÁGINA CONTACTO DISPENSARIO
-========================================================= */
-
-.dispensary-contact-page {
-  background: #f6f4ef;
-}
-
-.dispensary-contact-hero {
-  background:
-    linear-gradient(90deg, rgba(11, 35, 53, 0.82) 0%, rgba(11, 35, 53, 0.56) 42%, rgba(11, 35, 53, 0.24) 100%),
     url('/images/dispensario/jardin.jpg');
   background-size: cover;
   background-position: center;
@@ -6986,5 +6963,180 @@ strong {
 
   .brand-logo {
     width: min(285px, 84vw) !important;
+  }
+}
+
+/* =========================================================
+   AJUSTES FINALES LIMPIOS - COFA / DISPENSARIO
+========================================================= */
+
+/* Footer: interlineado más cerrado y uniforme */
+.site-footer,
+.site-footer p,
+.site-footer a,
+.footer-brand-copy p,
+.footer-column p,
+.footer-bottom-note,
+.footer-bottom-note a {
+  line-height: 1.35 !important;
+}
+
+.footer-column p {
+  margin: 0 0 10px !important;
+}
+
+.footer-brand-copy p {
+  margin-top: 4px !important;
+}
+
+.footer-bottom-note {
+  margin-top: 18px !important;
+}
+
+/* Hero Dispensario: evita que DISPENSARIO se corte */
+.dispensario-hero-brand {
+  left: clamp(18px, 4vw, 64px) !important;
+  right: clamp(18px, 4vw, 64px) !important;
+  max-width: calc(100vw - 36px) !important;
+  width: max-content !important;
+  font-size: clamp(2.2rem, 5.6vw, 5.5rem) !important;
+  letter-spacing: clamp(0.08em, 1.1vw, 0.18em) !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.dispensario-hero-slide {
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* Servicios: centrados porque son cards */
+.dispensario-hero-message,
+.dispensario-services-head,
+.dispensario-service-content,
+.services-cofa-head,
+.service-cofa-content {
+  text-align: center !important;
+}
+
+/* COFA - Quiénes somos: se queda como ya estaba bien */
+.about-preview-copy {
+  text-align: justify !important;
+}
+
+.about-preview-btn {
+  align-self: center !important;
+}
+
+/* =========================================================
+   QUIÉNES SOMOS DISPENSARIO - ESTILO COMO LA FOTO 2
+========================================================= */
+
+.dispensario-about-copy {
+  min-height: 700px !important;
+  padding: clamp(58px, 6vw, 105px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  background:
+    radial-gradient(circle at top right, rgba(23, 110, 166, 0.08), transparent 34%),
+    #ffffff !important;
+}
+
+/* QUIÉNES SOMOS grande */
+.dispensario-about-copy .dispensario-kicker,
+.dispensario-about-main-title {
+  margin: 0 0 28px !important;
+  max-width: 10ch !important;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: clamp(4.4rem, 6.8vw, 7.4rem) !important;
+  font-weight: 950 !important;
+  line-height: 0.88 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #243237 !important;
+  text-align: left !important;
+}
+
+/* Atención accesible... más pequeño que QUIÉNES SOMOS */
+.dispensario-about-copy h2 {
+  margin: 0 0 26px !important;
+  max-width: 620px !important;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: clamp(2.45rem, 3.25vw, 3.55rem) !important;
+  font-weight: 500 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.06em !important;
+  color: #243237 !important;
+  text-align: left !important;
+}
+
+/* Párrafos normales, sin justificar */
+.dispensario-about-copy p:not(.dispensario-kicker):not(.dispensario-about-main-title) {
+  max-width: 720px !important;
+  margin: 0 0 18px !important;
+  font-size: 1.06rem !important;
+  line-height: 1.85 !important;
+  color: #5e6a6d !important;
+  text-align: left !important;
+}
+
+/* Botón */
+.dispensario-about-btn {
+  width: fit-content !important;
+  margin-top: 18px !important;
+  padding: 16px 28px !important;
+  border-radius: 999px !important;
+  align-self: center !important;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .dispensario-hero-brand {
+    top: 26px !important;
+    left: 16px !important;
+    right: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+    font-size: clamp(1.75rem, 8.7vw, 3rem) !important;
+    letter-spacing: 0.055em !important;
+  }
+
+  .dispensario-hero-slide {
+    background-position: center center !important;
+  }
+
+  .dispensario-about-copy {
+    padding: 38px 22px !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .dispensario-about-copy .dispensario-kicker,
+  .dispensario-about-main-title {
+    max-width: 100% !important;
+    font-size: clamp(2.9rem, 13vw, 4.7rem) !important;
+    line-height: 0.9 !important;
+    letter-spacing: 0.07em !important;
+    text-align: left !important;
+  }
+
+  .dispensario-about-copy h2 {
+    max-width: 100% !important;
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 1 !important;
+    text-align: left !important;
+  }
+
+  .dispensario-about-copy p:not(.dispensario-kicker):not(.dispensario-about-main-title) {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    text-align: left !important;
+  }
+
+  .dispensario-about-btn {
+    align-self: center !important;
   }
 }

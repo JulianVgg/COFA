@@ -9,6 +9,7 @@ const tratamientos = [
   'Prótesis total y prótesis removible',
   'Blanqueamiento dental',
   'Consulta',
+  'Ortodoncia',
 ]
 
 function OdontologiaPage() {

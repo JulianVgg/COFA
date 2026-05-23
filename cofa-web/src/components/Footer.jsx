@@ -14,7 +14,7 @@ function Footer() {
         <div className="footer-brand-row">
           <div className="footer-brand">
             <img
-              src="/images/logo/cofa-logo2.png"
+              src="/images/logo/logo4.png"
               alt="Logo de COFA"
               className="footer-brand-logo"
             />

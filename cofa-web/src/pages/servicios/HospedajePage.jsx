@@ -11,9 +11,10 @@ function HospedajePage() {
   const generalSlides = useMemo(
     () => [
       '/images/hospedaje/general-1.jpg',
-      '/images/hospedaje/general-2.jpg',
+      '/images/hospedaje/adveniat-room-3.jpg',
       '/images/hospedaje/general-3.jpg',
-      '/images/hospedaje/general-4.jpg',
+      '/images/hospedaje/adveniat-room-1.jpg',
+      '/images/hospedaje/adveniat-room-4.jpg',
     ],
     [],
   )
@@ -208,7 +209,7 @@ function HospedajePage() {
           <div className="hotel-rooms-copy reveal-right">
             <p className="hotel-small-label">Hotel Alaminos</p>
 
-            <h2>Habitaciones pensadas para comodidad y organización.</h2>
+            <h2>Habitaciones pensadas para comodidad y descanso.</h2>
 
             <div className="hotel-info-card">
               <div className="hotel-info-header">
@@ -260,7 +261,7 @@ function HospedajePage() {
     <h2>Hotel Adveniat</h2>
     <p>
       Una opción complementaria de hospedaje para grupos y personas que
-      buscan una estancia práctica y organizada.
+      buscan una estancia acogedora.
     </p>
   </div>
 </section>

@@ -35,10 +35,9 @@ function Nosotros() {
               </p>
 
               <p>
-                Su ubicación céntrica en Quetzaltenango es uno de sus mayores
-                valores, especialmente para grupos, instituciones y
-                organizaciones que buscan un lugar accesible para realizar sus
-                actividades.
+              COFA es un espacio orientado a brindar un ambiente acogedor,
+              accesible y confiable para grupos, organizaciones, personas
+              particulares y entidades religiosas.
               </p>
             </div>
           </Reveal>
@@ -69,9 +68,9 @@ function Nosotros() {
           <h3>VISIÓN</h3>
 
           <p>
-            Ser líderes en el Sur Occidente al proveer servicios de alta
-            calidad y un ambiente agradable que coadyuven al
-            fortalecimiento espiritual de sus miembros y usuarios.
+          Ser líderes en el sur occidente al proveer servicios de calidad en un
+          ambiente cómodo y agradable, para contribuir con el fortalecimiento
+          del MFC de Quetzaltenango.
           </p>
         </article>
       </Reveal>
@@ -81,11 +80,9 @@ function Nosotros() {
           <h3>MISIÓN</h3>
 
           <p>
-            Proveer servicios de alimentación, hospedaje y espacios
-            físicos para retiros, reuniones, convenciones, foros y
-            eventos de formación del Movimiento Familiar Cristiano,
-            grupos eclesiales, instituciones de servicios y empresas
-            privadas.
+            Proveer servicios de alimentación, hospedaje y espacios físicos para
+            retiros, reuniones, capacitaciones y eventos de formación del MFC,
+            organizaciones religiosas, públicas y privadas.
           </p>
         </article>
       </Reveal>

@@ -10,13 +10,15 @@ function MedicinaGeneralPage() {
   const whatsappUrl = `https://wa.me/50237908767?text=${whatsappMessage}`
 
   const serviciosMedicina = [
-    'Consulta médica general',
-    'Servicio de medicina general',
-    'Lavado de oído',
-    'Suturas',
-    'Retiro de métodos anticonceptivos',
-    'Retiro de puntos',
-  ]
+  'Servicio de Medicina General',
+  'Consulta Médica',
+  'Lavado de oído',
+  'Suturas',
+  'Retiro de métodos anticonceptivos',
+  'Retiro de puntos',
+  'Servicio de Papanicolaou',
+  'Atención a niños y adultos',
+]
 
   return (
     <main className="medical-page">

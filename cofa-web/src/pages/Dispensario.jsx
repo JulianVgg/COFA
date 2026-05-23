@@ -19,17 +19,17 @@ function Dispensario() {
     () => [
       {
         id: 1,
-        title: 'Atención médica accesible.',
+        title: 'Atención médica accesible',
         image: '/images/hero/Dispensario.jpg',
       },
       {
         id: 2,
-        title: 'Servicios con sentido humano.',
-        image: '/images/hero/Clinica.jpg',
+        title: 'Servicios con sentido humano',
+        image: '/images/hero/Farmacia.jpg',
       },
       {
         id: 3,
-        title: 'Salud para la comunidad.',
+        title: 'Salud para la comunidad',
         image: '/images/dispensario/odonto.jpg',
       },
     ],
@@ -59,7 +59,7 @@ function Dispensario() {
         images: [
           '/images/hero/Odontologia persona.jpg',
           '/images/hero/Slaon Odonto.jpg',
-          '/images/hero/Clinica 4.jpg',
+
         ],
       },
       {
@@ -241,16 +241,14 @@ function Dispensario() {
               <h2>Atención accesible con sentido humano</h2>
 
               <p>
-                El Dispensario Sagrada Familia es la cara social del Movimiento
-                Familiar Cristiano. Brinda servicios de salud con atención
-                presencial, precios accesibles y una orientación cercana para la
-                comunidad.
+                El Dispensario Sagrada Familia es el aporte social del Movimiento
+                Familiar Cristiano a la población, brinda servicios de salud con
+                atención presencial y precios accesibles.
               </p>
 
               <p>
-                Actualmente ofrece medicina general, odontología, farmacia y
-                enfermería, procurando que las personas puedan acceder a servicios
-                básicos de salud de forma más económica que en un centro privado.
+                Actualmente ofrece los servicios de: medicina general, odontología,
+                farmacia y enfermería.
               </p>
 
               <Link to="/dispensario/contacto" className="dispensario-about-btn">

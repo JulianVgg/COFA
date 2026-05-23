@@ -2,7 +2,7 @@ export const heroSlides = [
   {
     id: 1,
     eyebrow: 'COFA',
-    title: 'Salones para eventos.',
+    title: 'Salones para eventos',
     text: '',
     ctaPrimary: 'Ver más',
     ctaSecondary: 'Contacto',
@@ -13,7 +13,7 @@ export const heroSlides = [
   {
     id: 2,
     eyebrow: 'COFA',
-    title: 'Hospedaje confiable.',
+    title: 'Hospedaje confiable',
     text: '',
     ctaPrimary: 'Ver más',
     ctaSecondary: 'Contacto',
@@ -24,7 +24,7 @@ export const heroSlides = [
   {
     id: 3,
     eyebrow: 'COFA',
-    title: 'Servicio de alimentación.',
+    title: 'Servicio de alimentación',
     text: '',
     ctaPrimary: 'Ver más',
     ctaSecondary: 'Contacto',
@@ -74,7 +74,7 @@ export const services = [
 ]
 
 export const quickFacts = [
-  'COFA nació como una casa de retiros pensada para el movimiento y luego se abrió al público.',
+  'COFA nació como una casa de retiros pensada para el Movimiento Familiar Cristiano y luego se abrió al público.',
   'Su ubicación céntrica es una de las ventajas más mencionadas por quienes visitan el lugar.',
   'Las reservaciones e información suelen manejarse principalmente por WhatsApp.',
 ]
